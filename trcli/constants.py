@@ -64,7 +64,7 @@ PROMPT_MESSAGES = dict(
     "Would you like to create missing test cases under project: '{project_name}'?",
 )
 
-TOOL_VERSION = f"""TestRail New-CLI v{trcli.__version__}
+TOOL_VERSION = f"""TestRail HPE v{trcli.__version__}
 Copyright 2023 Gurock Software GmbH - www.gurock.com"""
 TOOL_USAGE = f"""Supported and loaded modules:
     - parse_junit: JUnit XML Files (& Similar)
