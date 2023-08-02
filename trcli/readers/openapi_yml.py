@@ -10,7 +10,7 @@ from trcli.data_classes.dataclass_testrail import (
     TestRailResult,
 )
 from trcli.readers.file_parser import FileParser
-from openapi_spec_validator import validate_spec, openapi_v30_spec_validator
+from openapi_spec_validator import validate_spec, openapi_v30_spec_validator, openapi_v31_spec_validator
 from openapi_spec_validator.readers import read_from_filename
 from prance import ResolvingParser
 
@@ -194,5 +194,30 @@ class OpenApiParser(FileParser):
         unresolved_spec_dict, spec_url = read_from_filename(str(spec_path.absolute()))
         parser = ResolvingParser(spec_string=json.dumps(unresolved_spec_dict), backend='openapi-spec-validator')
         spec_dictionary = parser.specification
-        validate_spec(spec_dictionary, validator=openapi_v30_spec_validator)
+        self.__validate_spec_version(spec_dictionary)
         return spec_dictionary
+
+    def __validate_spec_version(self, spec_dictionary):
+
+        list_versions = self.__valid_versions_list()
+        list_validator = self.__get_list_validator()
+
+        for version in list_versions:
+            spec_validator = list_validator[version]
+            try:
+                validate_spec(spec_dictionary, validator=spec_validator)
+                return True
+            except:
+                return False
+
+        raise "This openapi file dont have a 3.x layout version."
+
+    def __valid_versions_list(self):
+        return ["OAS 3.0", "OAS 3.1"]
+
+    def __get_list_validator(self):
+        return {
+            "OAS 3.0": openapi_v30_spec_validator,
+            "OAS 3.1": openapi_v31_spec_validator,
+        }
+
