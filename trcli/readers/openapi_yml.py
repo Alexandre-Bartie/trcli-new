@@ -192,10 +192,23 @@ class OpenApiParser(FileParser):
     def resolve_openapi_spec(self) -> dict:
         spec_path = self.filepath
         unresolved_spec_dict, spec_url = read_from_filename(str(spec_path.absolute()))
-        parser = ResolvingParser(spec_string=json.dumps(unresolved_spec_dict), backend='openapi-spec-validator')
-        spec_dictionary = parser.specification
-        self.__validate_spec_version(spec_dictionary)
-        return spec_dictionary
+        try:
+            parser = ResolvingParser(spec_string=json.dumps(unresolved_spec_dict), backend='openapi-spec-validator')
+            spec_dictionary = parser.specification
+            self.__validate_spec_version(spec_dictionary)
+            return spec_dictionary
+        except Exception as e:
+            errorMsg = json.dumps(e.args[0], indent=4, separators=(". ", "="))
+            # errorPath = e.args[2]
+            # errorResp = e.args[5]
+            print("List Errors:")
+            print(f'{errorMsg}')
+            # print(f'Error Path#: {errorPath}')
+            # print(f'Error Resp#: {errorResp}')
+            # print("List Errors:")
+            # for arg in e.args:
+            #     print(f'Error #: {arg}')
+            raise e #"This openapi file have internal problems."
 
     def __validate_spec_version(self, spec_dictionary):
 

@@ -1,0 +1,1125 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Audit Trail",
+        "description": " This Document outlines the API contracts for for HPE Common Cloud Services",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/auditlogs/app/v1/publish": {
+            "post": {
+                "tags": [
+                    "App-Instance-AuditLogs"
+                ],
+                "summary": "Post App specific auditlogs",
+                "description": "post auditlogs from external application services",
+                "operationId": "publish_external_audit_event_auditlogs_app_v1_publish_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuditExternalEvent"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PublishResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unsupported user endpoint API"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auditlogs/app/v1/configs": {
+            "get": {
+                "tags": [
+                    "App-Instance-AuditLogs"
+                ],
+                "summary": "Get App specific auditlogs configuration",
+                "description": "get external application auditlogs specific configurations.",
+                "operationId": "application_configuration_auditlogs_app_v1_configs_get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "App Id",
+                            "type": "string"
+                        },
+                        "name": "app_id",
+                        "in": "query"
+                    },
+                    {
+                        "required": false,
+                        "schema": {
+                            "title": "App Instance Id",
+                            "type": "string"
+                        },
+                        "name": "app_instance_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Application Configuration Auditlogs App V1 Configs Get",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AllConfigs"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unsupported user endpoint API"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "App-Instance-AuditLogs"
+                ],
+                "summary": "Modify App specific auditlogs configuration",
+                "description": "App config API will be deprecated soon, this API will be allowed only for App Admin/TAC admin/White-Listed users via UI api /auditlogs/ui/v1/configs.",
+                "operationId": "application_configuration_auditlogs_app_v1_configs_put",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateConfigs"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unsupported user endpoint API"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            },
+            "post": {
+                "tags": [
+                    "App-Instance-AuditLogs"
+                ],
+                "summary": "Post App specific auditlogs configuration",
+                "description": "App config API will be deprecated soon, this API will be allowed only for App Admin/TAC admin/White-Listed users via UI api /auditlogs/ui/v1/configs.",
+                "operationId": "application_configuration_auditlogs_app_v1_configs_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Configs"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unsupported user endpoint API"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        },
+        "/auditlogs/app/v1/configs/{audit_id}/{platform_customer_id}/{username}": {
+            "delete": {
+                "tags": [
+                    "App-Instance-AuditLogs"
+                ],
+                "summary": "Get App specific auditlogs configuration",
+                "description": "App config API will be deprecated soon, this API will be allowed only for App Admin/TAC admin/White-Listed users via UI api /auditlogs/ui/v1/configs.",
+                "operationId": "application_configuration_auditlogs_app_v1_configs__audit_id___platform_customer_id___username__delete",
+                "parameters": [
+                    {
+                        "description": "Unique doc id to delete",
+                        "required": true,
+                        "schema": {
+                            "title": "Doc id",
+                            "type": "string",
+                            "description": "Unique doc id to delete"
+                        },
+                        "name": "audit_id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "Platform customer id",
+                        "required": true,
+                        "schema": {
+                            "title": "platform_customer_id",
+                            "type": "string",
+                            "description": "Platform customer id"
+                        },
+                        "name": "platform_customer_id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "Account username",
+                        "required": true,
+                        "schema": {
+                            "title": "username",
+                            "type": "string",
+                            "description": "Account username"
+                        },
+                        "name": "username",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unsupported user endpoint API"
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AccountType": {
+                "title": "AccountType",
+                "enum": [
+                    "STANDALONE",
+                    "MSP",
+                    "TENANT"
+                ],
+                "description": "An enumeration."
+            },
+            "AllAppAuditInfo": {
+                "title": "AllAppAuditInfo",
+                "required": [
+                    "CATEGORIES",
+                    "UI_SEARCH_FIELDS",
+                    "DASHBOARD_COLUMNS",
+                    "AUDIT_EXPORT_FIELDS",
+                    "SUPPORTED_QUERY_PARAMS"
+                ],
+                "type": "object",
+                "properties": {
+                    "CATEGORIES": {
+                        "title": "Categories",
+                        "type": "array",
+                        "items": {},
+                        "description": "Audit categories"
+                    },
+                    "UI_SEARCH_FIELDS": {
+                        "title": "Ui Search Fields",
+                        "type": "object",
+                        "description": "UI Search fields"
+                    },
+                    "DASHBOARD_COLUMNS": {
+                        "title": "Dashboard Columns",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AllDashboardColumns"
+                            }
+                        ],
+                        "description": "Audit-Trail UI fields"
+                    },
+                    "AUDIT_EXPORT_FIELDS": {
+                        "title": "Audit Export Fields",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AuditExportFields"
+                            }
+                        ],
+                        "description": "csv, pdf audit logs export fields."
+                    },
+                    "SUPPORTED_QUERY_PARAMS": {
+                        "title": "Supported Query Params",
+                        "type": "object",
+                        "description": "Default supported query params with search type as str."
+                    },
+                    "ORDER": {
+                        "title": "Order",
+                        "type": "object",
+                        "description": "Default dashboard columns sorting order"
+                    }
+                }
+            },
+            "AllConfigs": {
+                "title": "AllConfigs",
+                "required": [
+                    "app_id",
+                    "configs"
+                ],
+                "type": "object",
+                "properties": {
+                    "app_id": {
+                        "title": "App Id",
+                        "type": "string",
+                        "description": "Application unique id (UUID)"
+                    },
+                    "app_slug": {
+                        "title": "App Slug",
+                        "type": "string",
+                        "description": "App slug name"
+                    },
+                    "app_name": {
+                        "title": "App Name",
+                        "type": "string",
+                        "description": "Application Name"
+                    },
+                    "audit_id": {
+                        "title": "Audit Id",
+                        "type": "string",
+                        "description": "Document ID"
+                    },
+                    "app_instance_id": {
+                        "title": "App Instance Id",
+                        "type": "string",
+                        "description": "Region-specific UUID"
+                    },
+                    "app_customer_id": {
+                        "title": "App Customer Id",
+                        "type": "string",
+                        "description": "Application-specific customer id"
+                    },
+                    "configs": {
+                        "title": "Configs",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AllAppAuditInfo"
+                            }
+                        ],
+                        "description": "The complete configuration to be stored in the DB"
+                    }
+                }
+            },
+            "AllDashboardColumns": {
+                "title": "AllDashboardColumns",
+                "required": [
+                    "DEFAULT",
+                    "ALL"
+                ],
+                "type": "object",
+                "properties": {
+                    "DEFAULT": {
+                        "title": "Default",
+                        "type": "object",
+                        "description": "Default UI columns in the audit-trail page"
+                    },
+                    "FIXED": {
+                        "title": "Fixed",
+                        "type": "object",
+                        "description": "Fixed column in Auditlogs UI page, this should be present in default field as well.",
+                        "default": {
+                            "Category": "category",
+                            "Time": "audit_created_at",
+                            "Description": "description"
+                        }
+                    },
+                    "ALL": {
+                        "title": "All",
+                        "type": "object",
+                        "description": "All supported UI columns"
+                    }
+                }
+            },
+            "AppAuditInfo": {
+                "title": "AppAuditInfo",
+                "required": [
+                    "app_type",
+                    "categories",
+                    "dashboard_columns"
+                ],
+                "type": "object",
+                "properties": {
+                    "app_type": {
+                        "title": "App Type",
+                        "type": "string",
+                        "description": "Type of an external application. (example CENTRAL, CLOUD COMPUTE etc.,)"
+                    },
+                    "categories": {
+                        "title": "Categories",
+                        "type": "array",
+                        "items": {},
+                        "description": "Categories list supported by an external application"
+                    },
+                    "dashboard_columns": {
+                        "title": "Dashboard Columns",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/DashboardColumns"
+                            }
+                        ],
+                        "description": "Audit-Trail UI fields"
+                    },
+                    "order": {
+                        "title": "Order",
+                        "type": "object",
+                        "description": "dashboard columns sorting order details"
+                    }
+                }
+            },
+            "AuditDetails": {
+                "title": "AuditDetails",
+                "required": [
+                    "header"
+                ],
+                "type": "object",
+                "properties": {
+                    "header": {
+                        "title": "Header",
+                        "type": "string",
+                        "description": "If there are more audit details, header of the details"
+                    },
+                    "body": {
+                        "title": "Body",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "If there are more audit details, body of the details required",
+                        "default": []
+                    }
+                },
+                "description": "Additional information associated with the audit-log"
+            },
+            "AuditExportFields": {
+                "title": "AuditExportFields",
+                "required": [
+                    "CSV",
+                    "PDF"
+                ],
+                "type": "object",
+                "properties": {
+                    "CSV": {
+                        "title": "Csv",
+                        "type": "object",
+                        "description": "CSV file export config dict."
+                    },
+                    "PDF": {
+                        "title": "Pdf",
+                        "type": "object",
+                        "description": "PDF file export config dict."
+                    }
+                }
+            },
+            "AuditExternalEvent": {
+                "title": "AuditExternalEvent",
+                "required": [
+                    "source",
+                    "time",
+                    "data"
+                ],
+                "type": "object",
+                "properties": {
+                    "specversion": {
+                        "title": "Specversion",
+                        "type": "string",
+                        "description": "Indicates which version of Cloud Event",
+                        "default": "1.0"
+                    },
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "description": "The id field provides an id for that specific event",
+                        "default": "542f62c5-cc5c-4db7-ba7b-c94b57a406d2"
+                    },
+                    "type": {
+                        "title": "Type",
+                        "type": "string",
+                        "description": "Type of the event.",
+                        "default": "AUDIT_LOGS"
+                    },
+                    "source": {
+                        "title": "Source",
+                        "type": "string",
+                        "description": "To identify the event source, Example CENTRAL, CLOUD COMPUTE, STORAGE Etc.,"
+                    },
+                    "time": {
+                        "title": "Time",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "data": {
+                        "title": "Data",
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/AuditLogExternal"
+                            },
+                            {
+                                "$ref": "#/components/schemas/AuditInfoPayloadExternal"
+                            }
+                        ]
+                    }
+                },
+                "description": "Audit Trail log external event"
+            },
+            "AuditInfoExternal": {
+                "title": "AuditInfoExternal",
+                "required": [
+                    "category",
+                    "description",
+                    "audit_created_at"
+                ],
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "title": "Username",
+                        "type": "string",
+                        "description": "The username as email address"
+                    },
+                    "category": {
+                        "title": "Category",
+                        "type": "string",
+                        "description": "The category the log fits into"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string",
+                        "description": "The description of the audit log"
+                    },
+                    "customer_name": {
+                        "title": "Customer Name",
+                        "type": "string",
+                        "description": "The platform customer name"
+                    },
+                    "account_type": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AccountType"
+                            }
+                        ],
+                        "description": "Platform customer account type.",
+                        "default": "STANDALONE"
+                    },
+                    "msp_id": {
+                        "title": "Msp Id",
+                        "type": "string",
+                        "description": "Tenant's parent MSP account unique platform customer ID"
+                    },
+                    "audit_created_at": {
+                        "title": "Audit Created At",
+                        "type": "integer",
+                        "description": "The timestamp at which the event occurred"
+                    },
+                    "additional_info": {
+                        "title": "Additional Info",
+                        "type": "object",
+                        "description": "Any additional information is stored here. Fields such as 'target', 'device_type', 'ip_address', 'group_id' etc.",
+                        "default": {}
+                    },
+                    "has_details": {
+                        "title": "Has Details",
+                        "type": "boolean",
+                        "description": "Audit has more details, this field will set it to True else false.",
+                        "default": false
+                    },
+                    "application_customer_name": {
+                        "title": "Application Customer Name",
+                        "type": "string",
+                        "description": "The application customer name."
+                    },
+                    "msp_application_customer_id": {
+                        "title": "Msp Application Customer Id",
+                        "type": "string",
+                        "description": "Tenant's parent MSP account unique application customer ID"
+                    }
+                }
+            },
+            "AuditInfoPayloadExternal": {
+                "title": "AuditInfoPayloadExternal",
+                "required": [
+                    "username",
+                    "audit_info"
+                ],
+                "type": "object",
+                "properties": {
+                    "app_slug": {
+                        "title": "App Slug",
+                        "type": "string",
+                        "description": "The app_id assigned to the application"
+                    },
+                    "customer_id": {
+                        "title": "Customer Id",
+                        "type": "string",
+                        "description": "The platform customer ID",
+                        "default": "ccs_internal_customer_id"
+                    },
+                    "username": {
+                        "title": "Username",
+                        "type": "string",
+                        "description": "The username as email address"
+                    },
+                    "app_instance_id": {
+                        "title": "App Instance Id",
+                        "type": "string",
+                        "description": "The application instance ID",
+                        "default": "00000000-0000-0000-0000-000000000000"
+                    },
+                    "application_customer_id": {
+                        "title": "Application Customer Id",
+                        "type": "string",
+                        "description": "The application customer unique ID."
+                    },
+                    "audit_details": {
+                        "title": "Audit Details",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AuditDetails"
+                            }
+                        ],
+                        "description": "More details on the audit log"
+                    },
+                    "enable_streaming": {
+                        "title": "Enable Streaming",
+                        "type": "boolean",
+                        "description": "Streaming of audit log should be supported or not to external apps",
+                        "default": false
+                    },
+                    "audit_info": {
+                        "title": "Audit Info",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AuditInfoExternal"
+                            }
+                        ],
+                        "description": "Audit info field used inside the DB"
+                    },
+                    "app_id": {
+                        "title": "App Id",
+                        "type": "string",
+                        "description": "The app_id assigned to the application"
+                    }
+                }
+            },
+            "AuditLogExternal": {
+                "title": "AuditLogExternal",
+                "required": [
+                    "username",
+                    "application_customer_id",
+                    "category",
+                    "description"
+                ],
+                "type": "object",
+                "properties": {
+                    "audit_created_at": {
+                        "title": "Audit Created At",
+                        "type": "integer",
+                        "description": "The timestamp at which the event occurred",
+                        "default": 0
+                    },
+                    "username": {
+                        "title": "Username",
+                        "type": "string",
+                        "description": "The username as email address"
+                    },
+                    "customer_id": {
+                        "title": "Customer Id",
+                        "type": "string",
+                        "description": "The platform customer ID"
+                    },
+                    "customer_name": {
+                        "title": "Customer Name",
+                        "type": "string",
+                        "description": "The platform customer name"
+                    },
+                    "account_type": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AccountType"
+                            }
+                        ],
+                        "description": "Platform customer account type.",
+                        "default": "STANDALONE"
+                    },
+                    "msp_id": {
+                        "title": "Msp Id",
+                        "type": "string",
+                        "description": "Tenant's parent MSP account unique platform customer ID"
+                    },
+                    "application_customer_id": {
+                        "title": "Application Customer Id",
+                        "type": "string",
+                        "description": "The application customer unique ID."
+                    },
+                    "app_slug": {
+                        "title": "App Slug",
+                        "type": "string",
+                        "description": "The app_id assigned to the application"
+                    },
+                    "app_id": {
+                        "title": "App Id",
+                        "type": "string",
+                        "description": "The app_id assigned to the application"
+                    },
+                    "app_instance_id": {
+                        "title": "App Instance Id",
+                        "type": "string",
+                        "description": "The application instance ID"
+                    },
+                    "application_customer_name": {
+                        "title": "Application Customer Name",
+                        "type": "string",
+                        "description": "The application customer name."
+                    },
+                    "category": {
+                        "title": "Category",
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ExternalCategories"
+                            },
+                            {
+                                "$ref": "#/components/schemas/ComputeConsoleCategories"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ],
+                        "description": "The category the log fits into"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string",
+                        "description": "The description of the audit log"
+                    },
+                    "msp_application_customer_id": {
+                        "title": "Msp Application Customer Id",
+                        "type": "string",
+                        "description": "Tenant's parent MSP account unique application customer ID"
+                    },
+                    "source": {
+                        "title": "Source",
+                        "type": "string",
+                        "description": "Source of audit message. Mostly used in MSP messages."
+                    },
+                    "target": {
+                        "title": "Target",
+                        "type": "string",
+                        "description": "Auditlogs target, Mostly used in MSP/Tenant messages"
+                    },
+                    "audit_details": {
+                        "title": "Audit Details",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AuditDetails"
+                            }
+                        ],
+                        "description": "More details on the audit log"
+                    },
+                    "additional_info": {
+                        "title": "Additional Info",
+                        "type": "object",
+                        "description": "Any additional information is stored here. Fields such as 'target', 'device_type', 'ip_address', 'group_id' etc.",
+                        "default": {}
+                    }
+                },
+                "description": "Data model/ message model for the external audit-trail log"
+            },
+            "ComputeConsoleCategories": {
+                "title": "ComputeConsoleCategories",
+                "enum": [
+                    "Firmware",
+                    "Groups",
+                    "Lifecycle",
+                    "Power",
+                    "Subscription",
+                    "Schedules",
+                    "Server Settings"
+                ],
+                "description": "An enumeration."
+            },
+            "Configs": {
+                "title": "Configs",
+                "required": [
+                    "app_id",
+                    "app_customer_id",
+                    "app_audit_info"
+                ],
+                "type": "object",
+                "properties": {
+                    "app_id": {
+                        "title": "App Id",
+                        "type": "string",
+                        "description": "Application unique id (UUID)"
+                    },
+                    "app_customer_id": {
+                        "title": "App Customer Id",
+                        "type": "string",
+                        "description": "Application-specific customer id, Only TAC or App admin can update the configuration"
+                    },
+                    "platform_customer_id": {
+                        "title": "Platform Customer Id",
+                        "type": "string",
+                        "description": "Valid Platform customer id should be passed if configuration is for internal GLCP UI, External application configuration can be ignored. "
+                    },
+                    "app_slug": {
+                        "title": "App Slug",
+                        "type": "string",
+                        "description": "App slug name"
+                    },
+                    "app_name": {
+                        "title": "App Name",
+                        "type": "string",
+                        "description": "Application Name"
+                    },
+                    "app_instance_id": {
+                        "title": "App Instance Id",
+                        "type": "string",
+                        "description": "Region-specific UUID"
+                    },
+                    "app_audit_info": {
+                        "title": "App Audit Info",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AppAuditInfo"
+                            }
+                        ],
+                        "description": "Auditlogs config info on specific application."
+                    }
+                }
+            },
+            "DashboardColumns": {
+                "title": "DashboardColumns",
+                "required": [
+                    "all"
+                ],
+                "type": "object",
+                "properties": {
+                    "default": {
+                        "title": "Default",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Default UI columns in the audit-trail page",
+                        "default": [
+                            "Category",
+                            "Time",
+                            "Description"
+                        ]
+                    },
+                    "fixed": {
+                        "title": "Fixed",
+                        "type": "array",
+                        "items": {},
+                        "description": "Fixed column in Auditlogs UI page, this should be present in default field as well.",
+                        "default": [
+                            "Category",
+                            "Time",
+                            "Description"
+                        ]
+                    },
+                    "all": {
+                        "title": "All",
+                        "type": "array",
+                        "items": {},
+                        "description": "All supported UI columns"
+                    }
+                }
+            },
+            "ExternalCategories": {
+                "title": "ExternalCategories",
+                "enum": [
+                    "Alert Configuration",
+                    "API Gateway",
+                    "Augmentation Method",
+                    "Authentication and Policy",
+                    "AW8 Migration",
+                    "Backup Restore",
+                    "Classification Precedence",
+                    "CLI Access",
+                    "Client Match",
+                    "Collector",
+                    "Configuration",
+                    "Delete Device",
+                    "Delete Fingerprint",
+                    "Device Management",
+                    "Federated User Activity",
+                    "Firmware",
+                    "Firmware Management",
+                    "Gateway Management",
+                    "General Settings",
+                    "Groups",
+                    "Guest",
+                    "Install Manager",
+                    "Label Management",
+                    "Lifecycle",
+                    "Microservices",
+                    "Monitoring",
+                    "MSP",
+                    "Network Device",
+                    "Others",
+                    "Power",
+                    "Rbac",
+                    "Reboot",
+                    "Rule",
+                    "SAML Profile",
+                    "Scan",
+                    "Schedules",
+                    "Security Settings",
+                    "Segment",
+                    "Sites Management",
+                    "Subscription",
+                    "Subscription Management",
+                    "System CLI",
+                    "System Setup",
+                    "Tag",
+                    "Templates",
+                    "Tools",
+                    "User Activity",
+                    "Variables",
+                    "Web Access",
+                    "User Management",
+                    "Cloud Connect",
+                    "Server Settings",
+                    "Device Replacement",
+                    "Organization"
+                ],
+                "description": "An enumeration."
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "Message": {
+                "title": "Message",
+                "required": [
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "title": "Message",
+                        "type": "string",
+                        "description": "Message"
+                    }
+                }
+            },
+            "PublishResponse": {
+                "title": "PublishResponse",
+                "required": [
+                    "status",
+                    "message_id"
+                ],
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "title": "Status",
+                        "type": "string",
+                        "description": "Status of the message, success/failure"
+                    },
+                    "message_id": {
+                        "title": "Message Id",
+                        "type": "string",
+                        "description": "Processed audit-log event-id (UUID)"
+                    }
+                },
+                "description": "Wrapper class for the audits object"
+            },
+            "UpdateConfigs": {
+                "title": "UpdateConfigs",
+                "required": [
+                    "audit_id",
+                    "config"
+                ],
+                "type": "object",
+                "properties": {
+                    "audit_id": {
+                        "title": "Audit Id",
+                        "type": "string",
+                        "description": "Document ID"
+                    },
+                    "config": {
+                        "$ref": "#/components/schemas/Configs"
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "UI-Api-Status",
+            "description": "Operations specific to the status of the API server",
+            "x-displayName": "Status"
+        },
+        {
+            "name": "App-Instance-AuditLogs",
+            "description": "Operations that applications can use to send audit-trail data.",
+            "x-displayName": "Application Instances AuditLogs"
+        },
+        {
+            "name": "Internal-Api-AuditLogs",
+            "description": "Operations specific to the audit trail for Internal APIs.",
+            "x-displayName": "Internal Operations"
+        },
+        {
+            "name": "UI-Api-AuditLogs",
+            "description": "Operations specific to the audit trail for UI APIs",
+            "x-displayName": "Audit Trail UI Operations"
+        },
+        {
+            "name": "api-service-status",
+            "description": "APIs for server status",
+            "x-displayName": "Service Status"
+        },
+        {
+            "name": "internal-cluster-api-health",
+            "description": "APIs for server health",
+            "x-displayName": "Service Health"
+        },
+        {
+            "name": "audit-trail-app-instance",
+            "description": "Operations that applications can use to send audit-trail data.",
+            "x-displayName": "Application Instances AuditLogs"
+        },
+        {
+            "name": "audit-trail-ui",
+            "description": "Operations specific to Audit Trail for UI APIs",
+            "x-displayName": "Audit Trail Internal Operations"
+        },
+        {
+            "name": "audit-trail-internal",
+            "description": "Operations specific to Audit Trail for Internal APIs.",
+            "x-displayName": "Audit Trail UI Operations"
+        }
+    ],
+    "x-tagGroups": [
+        {
+            "name": "CCS Data APIs",
+            "tags": [
+                "App-Instance-AuditLogs"
+            ]
+        }
+    ]
+}

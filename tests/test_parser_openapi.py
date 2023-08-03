@@ -6,11 +6,9 @@ import pytest
 from trcli.cli import Environment
 from trcli.data_classes.data_parsers import MatchersParser
 from trcli.data_classes.dataclass_testrail import TestRailSuite
-from trcli.readers.openapi_json import OpenApiParser
-
+from trcli.readers.openapi_yml import OpenApiParser
 
 class TestOpenApiParser:
-    @pytest.mark.parse_openapi
     @pytest.mark.parametrize(
         "data_flow",
         [
@@ -23,10 +21,27 @@ class TestOpenApiParser:
             "layout 3.0 - Compatible",
             "layout 3.1 - Compatible"],
     )
-    def test_openapi_parser_layout_version(self, data_flow: {"file_name": str, "compatible": bool}, freezer):
-        file_name = data_flow["file_name"]
-        compatible = data_flow["compatible"]
-        freezer.move_to("2020-05-20 01:00:00")
+    def test_openapi_parser_layout_version(self, data_flow):
+        self.__parser_check(data_flow)
+
+
+    @pytest.mark.parse_openapi
+    @pytest.mark.parametrize(
+        "data_flow",
+        [
+            {"file_name": "authn_swagger.json", "compatible": True},
+        ],
+        ids=[
+            "AuthN",
+        ],
+    )
+    def test_openapi_parser_layout_system(self, data_flow):
+        self.__parser_check(data_flow)
+
+    def __parser_check(self, data: {"file_name": str, "compatible": bool}):
+        
+        file_name = data["file_name"]
+        compatible = data["compatible"]
         env = Environment()
         env.case_matcher = MatchersParser.AUTO
         env.file = Path(__file__).parent / "test_data/openapi/file" / file_name

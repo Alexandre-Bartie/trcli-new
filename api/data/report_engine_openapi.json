@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Report Engine",
+    "description": " This Document outlines the API contracts for HPE Common Cloud Services Report Engine",
+    "version": "v0"
+  },
+  "servers": [{
+    "url": "http://localhost:8080/report-engine",
+    "description": "Generated server url"
+  }],
+  "paths": {
+    "/report-engine/app/v1/query/execute-async": {
+      "post": {
+        "tags": [
+          "App APIs"
+        ],
+        "summary": "Endpoint to Execute the query asynchronously",
+        "description": "This API is used to run the query against the datasource asynchronously",
+        "operationId": "executeQueryAsync",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteQueryAsyncRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/report-engine/app/v1/query/execute": {
+      "post": {
+        "tags": [
+          "App APIs"
+        ],
+        "summary": "Execute the query",
+        "description": "This API is used the run the query against the datasource",
+        "operationId": "executeQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteQueryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExecuteQueryRequest": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "ExecuteQueryAsyncRequest": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "callback": {
+            "$ref": "#/components/schemas/Callback"
+          },
+          "payload": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          },
+          "store": {
+            "$ref": "#/components/schemas/Store"
+          }
+        }
+      },
+      "Callback": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string"
+          },
+          "messaging": {
+            "$ref": "#/components/schemas/Messaging"
+          }
+        }
+      },
+      "Messaging": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string"
+          }
+        }
+      },
+      "S3FileMetadata": {
+        "type": "object",
+        "properties": {
+          "bucketName": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "contentSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "creationTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lastModifiedTimeInEpochSeconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "compressed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Store": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "s3": {
+            "$ref": "#/components/schemas/S3FileMetadata"
+          }
+        }
+      },
+      "RunningStatus": {
+        "type": "object",
+        "properties": {
+          "running": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "tags": [{
+    "name": "App APIs",
+    "description": "Operations specific to the Report Engine for App APIs."
+  }],
+  "x-tagGroups": [{
+    "name": "App APIs",
+    "tags": [
+      "App APIs"
+    ]
+  }]
+}
