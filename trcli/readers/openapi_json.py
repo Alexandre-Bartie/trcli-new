@@ -16,7 +16,6 @@ from prance import ResolvingParser
 
 
 class OpenApiTestCase:
-
     def __init__(
             self,
             path: str,
@@ -118,7 +117,7 @@ Response code
 
     @staticmethod
     def _format_text(title, details):
-        text = f"""
+        text = f"""valid_list=[OAS_3_0, OAS_3_1]
 {title}
 =======
 """
@@ -192,28 +191,15 @@ class OpenApiParser(FileParser):
     def resolve_openapi_spec(self) -> dict:
         spec_path = self.filepath
         unresolved_spec_dict, spec_url = read_from_filename(str(spec_path.absolute()))
-        try:
-            parser = ResolvingParser(spec_string=json.dumps(unresolved_spec_dict), backend='openapi-spec-validator')
-            spec_dictionary = parser.specification
-            self.__validate_spec_version(spec_dictionary)
-            return spec_dictionary
-        except Exception as e:
-            errorMsg = json.dumps(e.args[0], indent=4, separators=(". ", "="))
-            errorPath = e.args[2]
-            errorResp = e.args[5]
-            print("List Errors:")
-            print(f'Error Path#: {errorPath}')
-            print(f'Error Resp#: {errorResp}')
-            print(f'{errorMsg}')
-            # print("List Errors:")
-            # for arg in e.args:
-            #     print(f'Error #: {arg}')
-            raise e  # "This openapi file have internal problems."
+        parser = ResolvingParser(spec_string=json.dumps(unresolved_spec_dict), backend='openapi-spec-validator')
+        spec_dictionary = parser.specification
+        self.__validate_spec_version(spec_dictionary)
+        return spec_dictionary
 
     def __validate_spec_version(self, spec_dictionary):
 
-        list_versions = self.__valid_versions_list()
-        list_validator = self.__get_list_validator()
+        list_versions = self.valid_versions_list()
+        list_validator = self.get_list_validator()
 
         for version in list_versions:
             spec_validator = list_validator[version]
@@ -225,11 +211,13 @@ class OpenApiParser(FileParser):
 
         raise "This openapi file dont have a 3.x layout version."
 
-    def __valid_versions_list(self):
-        return ["OAS 3.0", "OAS 3.1"]
+    def valid_versions_list(self):
+        versions = ["OAS 3.0", "OAS 3.1"]
+        return versions
 
-    def __get_list_validator(self):
-        return {
+    def get_list_validator(self):
+        validators = {
             "OAS 3.0": openapi_v30_spec_validator,
             "OAS 3.1": openapi_v31_spec_validator,
         }
+        return validators

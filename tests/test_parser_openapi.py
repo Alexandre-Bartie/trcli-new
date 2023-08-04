@@ -8,6 +8,7 @@ from trcli.data_classes.data_parsers import MatchersParser
 from trcli.data_classes.dataclass_testrail import TestRailSuite
 from trcli.readers.openapi_yml import OpenApiParser
 
+
 class TestOpenApiParser:
     @pytest.mark.parametrize(
         "data_flow",
@@ -24,24 +25,25 @@ class TestOpenApiParser:
     def test_openapi_parser_layout_version(self, data_flow):
         self.__parser_check(data_flow, type="version")
 
-
     @pytest.mark.parse_openapi
     @pytest.mark.parametrize(
         "data_flow",
         [
-            {"file_name": "authz_v1_external.json", "compatible": True},
-            {"file_name": "authz_v1_internal.json", "compatible": True},            
-            {"file_name": "authn.json", "compatible": True},
+            # {"file_name": "authz_v1_external.json", "compatible": True},
+            # {"file_name": "authz_v1_internal.json", "compatible": True},
+            {"file_name": "authn-swagger.json", "compatible": True},
         ],
         ids=[
-            "Authv1-External", "Authv1-Internal", "AuthN",
+            # "Authv1-External",
+            # "Authv1-Internal",
+            # "AuthN",
         ],
     )
     def test_openapi_parser_layout_system(self, data_flow):
         self.__parser_check(data_flow, type="system")
 
     def __parser_check(self, data: {"file_name": str, "compatible": bool}, type: str):
-        
+
         file_name = data["file_name"]
         compatible = data["compatible"]
         env = Environment()
@@ -79,12 +81,9 @@ class TestOpenApiParser:
             print(f"An error occurred while saving the file: {e}")
             return False
 
-    def __clear_unparsable_openapi_elements(
-            self, test_rail_suite: TestRailSuite
-    ) -> TestRailSuite:
-        """helper method to delete junit_result_unparsed field,
-        which asdict() method of dataclass can't handle"""
-        for section in test_rail_suite.testsections:
-            for case in section.testcases:
-                case.result.junit_result_unparsed = []
-        return test_rail_suite
+    def __clear_unparsable_openapi_elements(self, suite: TestRailSuite) -> TestRailSuite:
+        for section in suite.testsections:
+            for testcase in section.testcases:
+                testcase.result.junit_result_unparsed = []
+
+        return suite

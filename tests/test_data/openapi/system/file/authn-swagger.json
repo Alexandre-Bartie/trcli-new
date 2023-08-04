@@ -1,0 +1,4763 @@
+{
+   "openapi":"3.0.1",
+   "info":{
+      "title":"AuthN",
+      "description":"This Document outlines the API contracts for HPE Common Cloud Services",
+      "version":"1.0.0"
+   },
+   "paths":{
+      "/authn/internal/v1/onboarding/{application_instance_id}":{
+         "get":{
+            "tags":[
+               "internal-app-onboarding"
+            ],
+            "summary":"Application instance details",
+            "description":"Retrieve information about an application instance's AuthN onboarding configurations",
+            "operationId":"get_app_authn_internal_v1_onboarding__application_instance_id__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Application Instance Id",
+                     "type":"string"
+                  },
+                  "name":"application_instance_id",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/OnboardedAppsResponse"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "delete":{
+            "tags":[
+               "internal-app-onboarding"
+            ],
+            "summary":"Application Instance Deletion",
+            "description":"AuthN Onboarding  Internal API to delete an application instance.",
+            "operationId":"delete_app_instance_authn_internal_v1_onboarding__application_instance_id__delete",
+            "parameters":[
+               {
+                  "description":"Application instance ID",
+                  "required":true,
+                  "schema":{
+                     "title":"Application Instance ID",
+                     "type":"string",
+                     "description":"Application instance ID"
+                  },
+                  "name":"application_instance_id",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/onboarding":{
+         "put":{
+            "tags":[
+               "internal-app-onboarding"
+            ],
+            "summary":"Update an existing application-instance",
+            "description":"AuthN onboarding API to update an existing application instance",
+            "operationId":"update_app_authn_internal_v1_onboarding_put",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/OnboardedApps"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/OnboardedAppsResponse"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post":{
+            "tags":[
+               "internal-app-onboarding"
+            ],
+            "summary":"Onboard a new application-instance",
+            "description":"AuthN Onboarding APIs to register and add a new application instance/cluster",
+            "operationId":"add_app_authn_internal_v1_onboarding_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/OnboardedApps"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/OboardedAppsResponseWithSecret"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/healthz":{
+         "get":{
+            "tags":[
+               "service-health"
+            ],
+            "summary":"Health check to verify service is running.",
+            "description":"Health check to verify service is running.",
+            "operationId":"get_healthz_healthz_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HealthzResult"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HealthzResult"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/readyz":{
+         "get":{
+            "tags":[
+               "service-health"
+            ],
+            "summary":"Readiness probe to verify service readiness.",
+            "description":"Readiness probe to verify service readiness.",
+            "operationId":"get_readyz_readyz_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/ReadyzResult"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/ReadyzResult"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/token-management/credentials":{
+         "delete":{
+            "tags":[
+               "internal-token-management"
+            ],
+            "summary":"Delete credentials",
+            "description":"Delete the credentials for a user in an account",
+            "operationId":"delete_all_credentials_authn_internal_v1_token_management_credentials_delete",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Username",
+                     "type":"string"
+                  },
+                  "name":"username",
+                  "in":"query"
+               },
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Customer Id",
+                     "type":"string"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "204":{
+                  "description":"Successful Response"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/saml/config/{customer_id}/{domain}":{
+         "get":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"SAML config",
+            "description":"Return SAML config configured for this domain",
+            "operationId":"get_config_for_domain_authn_internal_v1_saml_config__customer_id___domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Customer Id",
+                     "type":"string"
+                  },
+                  "name":"customer_id",
+                  "in":"path"
+               },
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/SamlProfile"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/saml/federation-metadata/{domain}":{
+         "get":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Federation metadata",
+            "description":"Return the Parsed data of the SP's federation Metadata",
+            "operationId":"get_federation_metadata_authn_internal_v1_saml_federation_metadata__domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               },
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Customer Id",
+                     "type":"string"
+                  },
+                  "name":"customer_id",
+                  "in":"header"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Federation_metadata"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/saml/federation-metadata/{domain}/accounts":{
+         "get":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Federated Workspace metadata",
+            "description":"Return the Federated Workspaces for the given domain.",
+            "operationId":"get_federated_accounts_from_domain_authn_internal_v1_saml_federation_metadata__domain__accounts_get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "title":"Response Get Federated Accounts From Domain Authn Internal V1 Saml Federation Metadata  Domain  Accounts Get",
+                           "type":"array",
+                           "items":{
+                              "type":"string"
+                           }
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/saml/config":{
+         "get":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Get Domain list",
+            "description":"Retreive a list of claimed domains in this workspace",
+            "operationId":"domain_list_authn_internal_v1_saml_config_get",
+            "parameters":[
+               {
+                  "description":"customer_id of the user",
+                  "required":true,
+                  "schema":{
+                     "title":"customer_id",
+                     "type":"string",
+                     "description":"customer_id of the user"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "put":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Update IDP Configuration",
+            "description":"Update SAML Configuration for existing domain",
+            "operationId":"update_config_for_domain_authn_internal_v1_saml_config_put",
+            "parameters":[
+               {
+                  "description":"customer_id of the user",
+                  "required":true,
+                  "schema":{
+                     "title":"customer_id",
+                     "type":"string",
+                     "description":"customer_id of the user"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               },
+               {
+                  "description":"Username for logged in user",
+                  "required":true,
+                  "schema":{
+                     "title":"Username",
+                     "type":"string",
+                     "description":"Username for logged in user"
+                  },
+                  "name":"loggedin_username",
+                  "in":"query"
+               }
+            ],
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlProfile"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Add saml authentication data from central",
+            "description":"Add saml authentication data",
+            "operationId":"create_config_for_domain_authn_internal_v1_saml_config_post",
+            "parameters":[
+               {
+                  "description":"customer_id of the user",
+                  "required":true,
+                  "schema":{
+                     "title":"customer_id",
+                     "type":"string",
+                     "description":"customer_id of the user"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               },
+               {
+                  "description":"Username for logged in user",
+                  "required":true,
+                  "schema":{
+                     "title":"Username",
+                     "type":"string",
+                     "description":"Username for logged in user"
+                  },
+                  "name":"loggedin_username",
+                  "in":"query"
+               }
+            ],
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlProfile"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/saml/config/{domain}":{
+         "get":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"SAML config",
+            "description":"Return SAML config configured for this domain",
+            "operationId":"get_config_for_domain_authn_internal_v1_saml_config__domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               },
+               {
+                  "description":"customer_id of the user",
+                  "required":true,
+                  "schema":{
+                     "title":"customer_id",
+                     "type":"string",
+                     "description":"customer_id of the user"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "delete":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Delete domain",
+            "description":"Delete or un-claim the domain, belonging to a customer",
+            "operationId":"unclaim_domain_authn_internal_v1_saml_config__domain__delete",
+            "parameters":[
+               {
+                  "description":"Domain name for the domain to be deleted",
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string",
+                     "description":"Domain name for the domain to be deleted"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               },
+               {
+                  "description":"customer_id of the user",
+                  "required":true,
+                  "schema":{
+                     "title":"customer_id",
+                     "type":"string",
+                     "description":"customer_id of the user"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               },
+               {
+                  "description":"Username for logged in user",
+                  "required":true,
+                  "schema":{
+                     "title":"Username",
+                     "type":"string",
+                     "description":"Username for logged in user"
+                  },
+                  "name":"loggedin_username",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "204":{
+                  "description":"Successful Response"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "403":{
+                  "description":"Forbidden",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/internal/v1/saml/metadata/extract":{
+         "post":{
+            "tags":[
+               "internal-saml"
+            ],
+            "summary":"Extract Saml metadata from file",
+            "description":"Decode a Metadata file to populate the Saml config and add data tn db",
+            "operationId":"extract_metadata_authn_internal_v1_saml_metadata_extract_post",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Customer Id",
+                     "type":"string"
+                  },
+                  "name":"customer_id",
+                  "in":"query"
+               },
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Metadata File",
+                     "type":"string",
+                     "format":"binary"
+                  },
+                  "name":"metadata_file",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/SamlIdpMetadata"
+                        }
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/external/v1/status":{
+         "get":{
+            "tags":[
+               "External-Api-Status"
+            ],
+            "summary":"Service status",
+            "description":"Retrive the status of the API service",
+            "operationId":"api_server_status_authn_external_v1_status_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/external/v1/token-management/credentials":{
+         "get":{
+            "tags":[
+               "external-token-management"
+            ],
+            "summary":"Get credentials",
+            "description":"Get all credentials for a user in an account",
+            "operationId":"get_all_credentials_authn_external_v1_token_management_credentials_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "title":"Response Get All Credentials Authn External V1 Token Management Credentials Get",
+                           "type":"array",
+                           "items":{
+                              "$ref":"#/components/schemas/CredentialsResponse"
+                           }
+                        }
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         },
+         "post":{
+            "tags":[
+               "external-token-management"
+            ],
+            "summary":"Create credentials",
+            "description":"Create a new set of creds given the application CID and credential name.",
+            "operationId":"create_credentials_authn_external_v1_token_management_credentials_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/TokenManagementAttributes"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Credentials"
+                        }
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/external/v1/token-management/credentials/{credential_name}":{
+         "delete":{
+            "tags":[
+               "external-token-management"
+            ],
+            "summary":"Delete credentials",
+            "description":"Delete the credentials for a user in an account",
+            "operationId":"delete_credentials_authn_external_v1_token_management_credentials__credential_name__delete",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Credential Name",
+                     "type":"string"
+                  },
+                  "name":"credential_name",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "204":{
+                  "description":"Successful Response"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/external/v1/token-management/reset-credential/{credential_name}":{
+         "put":{
+            "tags":[
+               "external-token-management"
+            ],
+            "summary":"Reset credential",
+            "description":"Reset the client secret for a user in an account",
+            "operationId":"reset_credential_authn_external_v1_token_management_reset_credential__credential_name__put",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Credential Name",
+                     "type":"string"
+                  },
+                  "name":"credential_name",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Credentials"
+                        }
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/external/v1/token-management/generate-token":{
+         "post":{
+            "tags":[
+               "external-token-management"
+            ],
+            "summary":"Generate Access Token",
+            "description":"Generate Access Token for a given client ID and client Secret",
+            "operationId":"generate_access_token_authn_external_v1_token_management_generate_token_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/Credentials"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "title":"Response Generate Access Token Authn External V1 Token Management Generate Token Post",
+                           "type":"string"
+                        }
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/external/v1/token-management/token-url":{
+         "get":{
+            "tags":[
+               "external-token-management"
+            ],
+            "summary":"Get Token URL",
+            "description":"Get the Pingfed token URL",
+            "operationId":"get_token_url_authn_external_v1_token_management_token_url_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+
+                        }
+                     }
+                  }
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "TokenAuth":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/v1/session":{
+         "post":{
+            "tags":[
+               "session"
+            ],
+            "summary":"Create new user session",
+            "description":"Validates an access token and creates a new backend user session",
+            "operationId":"get_session_id_authn_v1_session_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/idToken"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/accounts"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported Session endpoint API"
+               },
+               "401":{
+                  "description":"Unauthorized",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "451":{
+                  "description":"Unavailable For Legal Reasons",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "security":[
+               {
+                  "JWTBearer":[
+
+                  ]
+               }
+            ]
+         }
+      },
+      "/authn/v1/session/local-login":{
+         "post":{
+            "tags":[
+               "session"
+            ],
+            "summary":"User local login",
+            "description":"Create a user session for local CCS login. Used only on On Premise setups",
+            "operationId":"local_login_authn_v1_session_local_login_post",
+            "requestBody":{
+               "content":{
+                  "application/x-www-form-urlencoded":{
+                     "schema":{
+                        "$ref":"#/components/schemas/Body_local_login_authn_v1_session_local_login_post"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/LocalLogin"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported Session endpoint API"
+               },
+               "403":{
+                  "description":"Forbidden",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/session/load-account/{cid}":{
+         "get":{
+            "tags":[
+               "session"
+            ],
+            "summary":"Load a workspace",
+            "description":"Load a workspace into the session for a logged in user",
+            "operationId":"load_account_authn_v1_session_load_account__cid__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Platform customer ID of the workspace to load",
+                     "type":"string"
+                  },
+                  "name":"cid",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported Session endpoint API"
+               },
+               "403":{
+                  "description":"Forbidden",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "451":{
+                  "description":"Unavailable For Legal Reasons",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/session/end-session":{
+         "get":{
+            "tags":[
+               "session"
+            ],
+            "summary":"Wipe out a user session",
+            "description":"Logout a user using a current session or a PingFed id ",
+            "operationId":"end_session_authn_v1_session_end_session_get",
+            "parameters":[
+               {
+                  "description":"Optional PF session ID parameter",
+                  "required":false,
+                  "schema":{
+                     "title":"Ping Fed Session ID",
+                     "type":"string",
+                     "description":"Optional PF session ID parameter"
+                  },
+                  "name":"pf_id",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported Session endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/onboarding/{application_instance_id}":{
+         "get":{
+            "tags":[
+               "UI-app-onboarding"
+            ],
+            "summary":"Application instance details",
+            "description":"Retrieve information about an application instance's AuthN onboarding configurations",
+            "operationId":"get_app_authn_v1_onboarding__application_instance_id__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Application Instance Id",
+                     "type":"string"
+                  },
+                  "name":"application_instance_id",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/OnboardedAppsResponse"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "delete":{
+            "tags":[
+               "UI-app-onboarding"
+            ],
+            "summary":"Delete an application-instance",
+            "description":"AuthN Onboarding API to delete an application instance",
+            "operationId":"delete_app_authn_v1_onboarding__application_instance_id__delete",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Application Instance Id",
+                     "type":"string"
+                  },
+                  "name":"application_instance_id",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/onboarding":{
+         "put":{
+            "tags":[
+               "UI-app-onboarding"
+            ],
+            "summary":"Update an existing application-instance",
+            "description":"AuthN onboarding API to update an existing application instance",
+            "operationId":"update_app_authn_v1_onboarding_put",
+            "parameters":[
+               {
+                  "description":"Optional param to indicate if its onboarded onto staging cluster",
+                  "required":false,
+                  "schema":{
+                     "title":"Staging Flag",
+                     "type":"string",
+                     "description":"Optional param to indicate if its onboarded onto staging cluster"
+                  },
+                  "name":"staging",
+                  "in":"query"
+               }
+            ],
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/OnboardedApps"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/OnboardedAppsResponse"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post":{
+            "tags":[
+               "UI-app-onboarding"
+            ],
+            "summary":"Onboard a new application-instance",
+            "description":"AuthN Onboarding APIs to register and add a new application instance/cluster",
+            "operationId":"add_app_authn_v1_onboarding_post",
+            "parameters":[
+               {
+                  "description":"Optional param to indicate if its onboarded onto staging cluster",
+                  "required":false,
+                  "schema":{
+                     "title":"Staging Flag",
+                     "type":"string",
+                     "description":"Optional param to indicate if its onboarded onto staging cluster"
+                  },
+                  "name":"staging",
+                  "in":"query"
+               }
+            ],
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/OnboardedApps"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/OboardedAppsResponseWithSecret"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/onboarding/login-url/{application_instance_id}":{
+         "get":{
+            "tags":[
+               "UI-app-onboarding"
+            ],
+            "summary":"Get login url for an application instance",
+            "description":"Retrieve information about an application instance's login url",
+            "operationId":"get_login_url_authn_v1_onboarding_login_url__application_instance_id__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Application Instance Id",
+                     "type":"string"
+                  },
+                  "name":"application_instance_id",
+                  "in":"path"
+               },
+               {
+                  "description":"Check if Login Url is valid for application instance",
+                  "required":false,
+                  "schema":{
+                     "title":"Login Url",
+                     "type":"string",
+                     "description":"Check if Login Url is valid for application instance"
+                  },
+                  "name":"query_url",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/status":{
+         "get":{
+            "tags":[
+               "UI-Api-Status"
+            ],
+            "summary":"Service status",
+            "description":"Retrive the status of the API service",
+            "operationId":"api_server_status_authn_v1_status_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/config":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Domain list",
+            "description":"Retrieve a list of Claimed domains in this workspace",
+            "operationId":"domain_list_authn_v1_saml_config_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Domains"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "put":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Update IDP configuration",
+            "description":"Update existing SAML configuration for a domain",
+            "operationId":"update_config_for_domain_authn_v1_saml_config_put",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlProfile"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated":true
+         },
+         "post":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Configure IDP",
+            "description":"Configure a new SAML configuration for a domain",
+            "operationId":"create_config_for_domain_authn_v1_saml_config_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlProfile"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated":true
+         }
+      },
+      "/authn/v1/saml/claims/{domain}":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Number of accounts with domain claimed",
+            "description":"Retrieve the number of accounts that have claimed this domain",
+            "operationId":"account_count_for_domain_authn_v1_saml_claims__domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/AccountCount"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/validate_domain":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"validate domain",
+            "description":"Validate and check if a domain can be claimed",
+            "operationId":"validate_saml_domain_authn_v1_saml_validate_domain_get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"query"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/metadata/upload":{
+         "post":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Metadata file",
+            "description":"Decode a Metadata file to populate the SAML config",
+            "operationId":"upload_metadata_authn_v1_saml_metadata_upload_post",
+            "requestBody":{
+               "content":{
+                  "multipart/form-data":{
+                     "schema":{
+                        "$ref":"#/components/schemas/Body_upload_metadata_authn_v1_saml_metadata_upload_post"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/SamlIdpMetadata"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/metadata/url":{
+         "post":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Metadata url",
+            "description":"Fetch metadata via metadata url",
+            "operationId":"parse_metadata_from_url_authn_v1_saml_metadata_url_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/metadataUrl"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/SamlIdpMetadata"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/metadata/manual/{domain}":{
+         "post":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Manual configuration",
+            "description":"Manually provide the SAML Metadata",
+            "operationId":"verify_saml_metadata_authn_v1_saml_metadata_manual__domain__post",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlIdpMetadata"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/domain_config"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/config/{domain}":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"SAML config",
+            "description":"Return SAML config configured for this domain",
+            "operationId":"get_config_for_domain_authn_v1_saml_config__domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/samlProfile_multidomain"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "delete":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Un-Claim a domain",
+            "description":"unclaim domain",
+            "operationId":"unclaim_domain_authn_v1_saml_config__domain__delete",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "204":{
+                  "description":"Successful Response"
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "403":{
+                  "description":"Forbidden",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated":true
+         }
+      },
+      "/authn/v1/saml/sp-metadata/{domain}":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"SP metadata",
+            "description":"Return the URL of the SP's federation Metadata",
+            "operationId":"get_sp_metadata_url_authn_v1_saml_sp_metadata__domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/metadata_url"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/federation-metadata/{domain}":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Federation metadata",
+            "description":"Return the Parsed data of the SP's federation Metadata",
+            "operationId":"get_federation_metadata_authn_v1_saml_federation_metadata__domain__get",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/FederationMetadata"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/async/config":{
+         "put":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Update IDP configuration",
+            "description":"Update existing SAML configuration for a domain",
+            "operationId":"update_config_for_domain_authn_v1_saml_async_config_put",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlProfile"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Configure IDP",
+            "description":"Configure a new SAML configuration for a domain",
+            "operationId":"create_config_for_domain_async_authn_v1_saml_async_config_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/SamlProfile"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "500":{
+                  "description":"Internal Server Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "412":{
+                  "description":"Precondition Failed",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/async/config/{domain}":{
+         "delete":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Un-Claim a domain",
+            "description":"unclaim domain",
+            "operationId":"unclaim_domain_async_authn_v1_saml_async_config__domain__delete",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Domain",
+                     "type":"string"
+                  },
+                  "name":"domain",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "204":{
+                  "description":"Successful Response"
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "403":{
+                  "description":"Forbidden",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/saml/show-notification":{
+         "get":{
+            "tags":[
+               "saml"
+            ],
+            "summary":"Show a notification to configure SAML",
+            "description":"Display a notification in on-prem setups post migration from 2.5.4 to configure SAML",
+            "operationId":"show_on_prem_saml_notification_authn_v1_saml_show_notification_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "403":{
+                  "description":"Forbidden",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated":true
+         }
+      },
+      "/authn/v1/token-management/credentials":{
+         "get":{
+            "tags":[
+               "UI-Token-Management"
+            ],
+            "summary":"Get credentials",
+            "description":"Get all credentials for a user in an workspace",
+            "operationId":"get_all_credentials_authn_v1_token_management_credentials_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "title":"Response Get All Credentials Authn V1 Token Management Credentials Get",
+                           "type":"array",
+                           "items":{
+                              "$ref":"#/components/schemas/CredentialsResponse"
+                           }
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "post":{
+            "tags":[
+               "UI-Token-Management"
+            ],
+            "summary":"Create credentials",
+            "description":"Create a new set of creds given the application CID and credential name.",
+            "operationId":"create_credentials_authn_v1_token_management_credentials_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/TokenManagementAttributes"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Credentials"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/token-management/credentials/{credential_name}":{
+         "delete":{
+            "tags":[
+               "UI-Token-Management"
+            ],
+            "summary":"Delete credentials",
+            "description":"Delete the credentials for a user in a workspace",
+            "operationId":"delete_credentials_authn_v1_token_management_credentials__credential_name__delete",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Credential Name",
+                     "type":"string"
+                  },
+                  "name":"credential_name",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "204":{
+                  "description":"Successful Response"
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/token-management/reset-credential/{credential_name}":{
+         "put":{
+            "tags":[
+               "UI-Token-Management"
+            ],
+            "summary":"Reset credential",
+            "description":"Reset the client secret for a user in an account",
+            "operationId":"reset_credential_authn_v1_token_management_reset_credential__credential_name__put",
+            "parameters":[
+               {
+                  "required":true,
+                  "schema":{
+                     "title":"Credential Name",
+                     "type":"string"
+                  },
+                  "name":"credential_name",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Credentials"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/token-management/generate-token":{
+         "post":{
+            "tags":[
+               "UI-Token-Management"
+            ],
+            "summary":"Generate Access Token",
+            "description":"Generate Access Token for a given client ID and client Secret",
+            "operationId":"generate_access_token_authn_v1_token_management_generate_token_post",
+            "requestBody":{
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/components/schemas/Credentials"
+                     }
+                  }
+               },
+               "required":true
+            },
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "title":"Response Generate Access Token Authn V1 Token Management Generate Token Post",
+                           "type":"string"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/token-management/token-url":{
+         "get":{
+            "tags":[
+               "UI-Token-Management"
+            ],
+            "summary":"Get Token URL",
+            "description":"Get the Pingfed token URL",
+            "operationId":"get_token_url_authn_v1_token_management_token_url_get",
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "title":"Response Get Token Url Authn V1 Token Management Token Url Get",
+                           "maxLength":65536,
+                           "minLength":1,
+                           "type":"string",
+                           "format":"uri"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Unsupported user endpoint API"
+               },
+               "400":{
+                  "description":"Bad Request",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "409":{
+                  "description":"Conflict",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/authn/v1/async-task-tracker/{tracking_id}":{
+         "get":{
+            "tags":[
+               "UI-TASK-TRACKER"
+            ],
+            "summary":"Status of async task",
+            "description":"Returns current status of an async task by tracking_id",
+            "operationId":"get_task_status_authn_v1_async_task_tracker__tracking_id__get",
+            "parameters":[
+               {
+                  "description":"tracking_id of the async task.",
+                  "required":true,
+                  "schema":{
+                     "title":"tracking_id",
+                     "type":"string",
+                     "description":"tracking_id of the async task."
+                  },
+                  "name":"tracking_id",
+                  "in":"path"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful Response",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/TrackingInfo"
+                        }
+                     }
+                  }
+               },
+               "404":{
+                  "description":"Not Found",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/Message"
+                        }
+                     }
+                  }
+               },
+               "422":{
+                  "description":"Validation Error",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                           "$ref":"#/components/schemas/HTTPValidationError"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   "components":{
+      "schemas":{
+         "AccountCount":{
+            "title":"AccountCount",
+            "required":[
+               "num_of_accounts"
+            ],
+            "type":"object",
+            "properties":{
+               "num_of_accounts":{
+                  "title":"Num Of Accounts",
+                  "type":"array",
+                  "items":{
+                     "type":"integer"
+                  }
+               }
+            }
+         },
+         "AccountStatus":{
+            "title":"AccountStatus",
+            "enum":[
+               "CREATING",
+               "BLOCKED",
+               "INACTIVE",
+               "ACTIVE",
+               "CONFIRMED_BLOCKED",
+               "DELETE_INITIATED"
+            ],
+            "description":"Keeps track of customer account status e.g.\ncreation, compliance and etc."
+         },
+         "AccountType":{
+            "title":"AccountType",
+            "enum":[
+               "STANDALONE",
+               "MSP",
+               "TENANT"
+            ],
+            "description":"An enumeration."
+         },
+         "ApiTokenScopes":{
+            "title":"ApiTokenScopes",
+            "enum":[
+               "read",
+               "read_all",
+               "write",
+               "write_all"
+            ],
+            "description":"Scopes that an applications (e.g. NMS) contacting CCS will use unitin the auth header\nto make API calls to CCS.\nhttps://confluence.arubanetworks.com/display/HPEUCP/Application+Instance+Authentication"
+         },
+         "AuthGrantTypes":{
+            "title":"AuthGrantTypes",
+            "enum":[
+               "pkce",
+               "non_pkce"
+            ],
+            "description":"An enumeration."
+         },
+         "Body_local_login_authn_v1_session_local_login_post":{
+            "title":"Body_local_login_authn_v1_session_local_login_post",
+            "required":[
+               "username",
+               "password"
+            ],
+            "type":"object",
+            "properties":{
+               "username":{
+                  "title":"Username",
+                  "type":"string"
+               },
+               "password":{
+                  "title":"Password",
+                  "type":"string"
+               }
+            }
+         },
+         "Body_upload_metadata_authn_v1_saml_metadata_upload_post":{
+            "title":"Body_upload_metadata_authn_v1_saml_metadata_upload_post",
+            "required":[
+               "metadata_file"
+            ],
+            "type":"object",
+            "properties":{
+               "metadata_file":{
+                  "title":"Metadata File",
+                  "type":"string",
+                  "format":"binary"
+               }
+            }
+         },
+         "CcsAddress":{
+            "title":"CcsAddress",
+            "type":"object",
+            "properties":{
+               "street_address":{
+                  "title":"Street Address",
+                  "type":"string",
+                  "description":"Street Address"
+               },
+               "city":{
+                  "title":"City",
+                  "maxLength":40,
+                  "type":"string"
+               },
+               "state_or_region":{
+                  "title":"Street Address",
+                  "maxLength":220,
+                  "type":"string",
+                  "description":"Street Address"
+               },
+               "zip":{
+                  "title":"Zip Code",
+                  "maxLength":10,
+                  "type":"string"
+               },
+               "country_code":{
+                  "title":"Country Code",
+                  "type":"string",
+                  "description":"Country Code"
+               },
+               "street_address_2":{
+                  "title":"Apt or Suite or Building",
+                  "type":"string",
+                  "description":"Apt or Suite or Building"
+               }
+            }
+         },
+         "Credentials":{
+            "title":"Credentials",
+            "required":[
+               "client_id",
+               "client_secret"
+            ],
+            "type":"object",
+            "properties":{
+               "client_id":{
+                  "title":"Client ID",
+                  "type":"string",
+                  "description":"Client ID of the credentials being created"
+               },
+               "client_secret":{
+                  "title":"Client Secret",
+                  "type":"string",
+                  "description":"Client Secret of the credentials being created"
+               }
+            },
+            "description":"Client ID and secret for the tokens."
+         },
+         "CredentialsResponse":{
+            "title":"CredentialsResponse",
+            "required":[
+               "credential_name",
+               "application_instance_id",
+               "client_id",
+               "app_nbapi_endpoint",
+               "connectivity_endpoint"
+            ],
+            "type":"object",
+            "properties":{
+               "credential_name":{
+                  "title":"Credential Name",
+                  "type":"string",
+                  "description":"Name of the credentials being created"
+               },
+               "application_instance_id":{
+                  "title":"Application instance ID",
+                  "type":"string",
+                  "description":"Application instance ID for which the credential is created"
+               },
+               "client_id":{
+                  "title":"Client ID",
+                  "type":"string",
+                  "description":"Client ID of the credentials being created"
+               },
+               "app_nbapi_endpoint":{
+                  "title":"External event endpoint",
+                  "type":"string",
+                  "description":"URL of the external event endpoint"
+               },
+               "connectivity_endpoint":{
+                  "title":"Connectivity Endpoint",
+                  "type":"string",
+                  "description":"Connectivity endpoint "
+               }
+            },
+            "description":"Response model used for token management GET APIs"
+         },
+         "CustomerContactLogo":{
+            "title":"CustomerContactLogo",
+            "type":"object",
+            "properties":{
+               "logo":{
+                  "title":"Logo",
+                  "type":"string",
+                  "description":"Customer logo icon"
+               },
+               "logo_filename":{
+                  "title":"Logo Filename",
+                  "type":"string",
+                  "description":"Customer logo name"
+               }
+            }
+         },
+         "CustomerSelection":{
+            "title":"CustomerSelection",
+            "required":[
+               "company_name",
+               "platform_customer_id"
+            ],
+            "type":"object",
+            "properties":{
+               "created_by":{
+                  "title":"User Email",
+                  "type":"string",
+                  "description":"Email address of user who created the account",
+                  "format":"email"
+               },
+               "email":{
+                  "title":"Customer Email",
+                  "type":"string",
+                  "description":"Company Email Address",
+                  "format":"email"
+               },
+               "company_name":{
+                  "title":"Company Name",
+                  "type":"string",
+                  "description":"Company Name of customer"
+               },
+               "description":{
+                  "title":"Company Description",
+                  "type":"string",
+                  "description":"Description of the customer's company"
+               },
+               "address":{
+                  "title":"CCS Address",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/CcsAddress"
+                     }
+                  ],
+                  "description":"Customer Address"
+               },
+               "phone_number":{
+                  "title":"Phone number",
+                  "type":"string",
+                  "description":"Phone number associated with this customer"
+               },
+               "defaulted_country_code":{
+                  "title":"Defaulted country code",
+                  "type":"boolean",
+                  "description":"Check if country code is changed"
+               },
+               "customer_logo":{
+                  "title":"Customer logo",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/CustomerContactLogo"
+                     }
+                  ],
+                  "description":"Customer logo associated with this customer",
+                  "default":{
+
+                  }
+               },
+               "msp_id":{
+                  "title":"MSP ID",
+                  "type":"string",
+                  "description":"Customer's managed service ID"
+               },
+               "account_status":{
+                  "title":"Account Status",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/AccountStatus"
+                     }
+                  ],
+                  "description":"Current account status of customer",
+                  "default":"ACTIVE"
+               },
+               "account_type":{
+                  "title":"Account Type",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/AccountType"
+                     }
+                  ],
+                  "description":"Account type associated with this customer",
+                  "default":"STANDALONE"
+               },
+               "platform_customer_id":{
+                  "title":"Platform Customer ID",
+                  "type":"string",
+                  "description":"Customer ID associated with the platform"
+               }
+            },
+            "description":"Custom API model to render customer selection page"
+         },
+         "Domains":{
+            "title":"Domains",
+            "required":[
+               "domains"
+            ],
+            "type":"object",
+            "properties":{
+               "domains":{
+                  "title":"Domains",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/EachDomain"
+                  }
+               }
+            }
+         },
+         "EachDomain":{
+            "title":"EachDomain",
+            "required":[
+               "domain_name",
+               "created_at"
+            ],
+            "type":"object",
+            "properties":{
+               "domain_name":{
+                  "title":"Domain Name",
+                  "type":"string"
+               },
+               "created_at":{
+                  "title":"Created At",
+                  "type":"string"
+               }
+            }
+         },
+         "EnforcementCondition":{
+            "title":"EnforcementCondition",
+            "enum":[
+               "NO_MAPPING",
+               "EQUALS",
+               "NOT_EQUALS"
+            ],
+            "description":"An enumeration."
+         },
+         "EnforcementLogicalOperator":{
+            "title":"EnforcementLogicalOperator",
+            "enum":[
+               "AND",
+               "OR"
+            ],
+            "description":"An enumeration."
+         },
+         "EnforcementPolicy":{
+            "title":"EnforcementPolicy",
+            "required":[
+               "policy_name",
+               "description",
+               "enforcement_rules",
+               "enforcement_logical_operator",
+               "roles"
+            ],
+            "type":"object",
+            "properties":{
+               "policy_name":{
+                  "title":"policy name",
+                  "type":"string",
+                  "description":"Enforcement policy name"
+               },
+               "description":{
+                  "title":"Description",
+                  "type":"string",
+                  "description":"Enforcement policy description"
+               },
+               "enforcement_rules":{
+                  "title":"Enforcement Rules",
+                  "maxItems":3,
+                  "minItems":1,
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/EnforcementRule"
+                  }
+               },
+               "enforcement_logical_operator":{
+                  "title":"Enforcement Operator",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/EnforcementLogicalOperator"
+                     }
+                  ],
+                  "description":"Enforcement Logical Operator"
+               },
+               "roles":{
+                  "title":"Roles",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/EnforcementRole"
+                  },
+                  "description":"Roles/Permissions to apply when this policy is matched"
+               }
+            }
+         },
+         "EnforcementPolicyConfiguration":{
+            "title":"EnforcementPolicyConfiguration",
+            "required":[
+               "email",
+               "idp_attributes",
+               "policies"
+            ],
+            "type":"object",
+            "properties":{
+               "email":{
+                  "title":"Email",
+                  "type":"string",
+                  "description":"Email field attribute"
+               },
+               "first_name":{
+                  "title":"First name",
+                  "type":"string",
+                  "description":"First name field attribute",
+                  "default":"fn_not_configured"
+               },
+               "last_name":{
+                  "title":"Last name",
+                  "type":"string",
+                  "description":"Last name field attribute",
+                  "default":"ln_not_configured"
+               },
+               "idle_session_timeout":{
+                  "title":"Idle session timeout(in mins)",
+                  "exclusiveMaximum":1440.0,
+                  "exclusiveMinimum":5.0,
+                  "type":"integer",
+                  "description":"Idle session timeout for the federated users",
+                  "default":15
+               },
+               "idp_attributes":{
+                  "title":"idp attributes",
+                  "maxItems":3,
+                  "minItems":1,
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"IDP attributes that need to be used to configure enforcement policies"
+               },
+               "policies":{
+                  "title":"Policy list",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/EnforcementPolicy"
+                  },
+                  "description":"List of enforcement policies"
+               }
+            }
+         },
+         "EnforcementRole":{
+            "title":"EnforcementRole",
+            "required":[
+               "platform_customer_id",
+               "roles"
+            ],
+            "type":"object",
+            "properties":{
+               "platform_customer_id":{
+                  "title":"Customer id",
+                  "type":"string",
+                  "description":"CCS platform Customer ID"
+               },
+               "roles":{
+                  "title":"Roles",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"List of Roles to assign to this Enforcement Role"
+               },
+               "editable_in_ui":{
+                  "title":"UI Flag",
+                  "type":"boolean",
+                  "description":"To depict that this entry is editable in UI",
+                  "default":false
+               }
+            }
+         },
+         "EnforcementRule":{
+            "title":"EnforcementRule",
+            "required":[
+               "attribute_name",
+               "condition",
+               "value"
+            ],
+            "type":"object",
+            "properties":{
+               "attribute_name":{
+                  "title":"Attribute name",
+                  "type":"string",
+                  "description":"Attribute name to define a rule for"
+               },
+               "condition":{
+                  "title":"Condition",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/EnforcementCondition"
+                     }
+                  ],
+                  "description":"Enforcement condition to apply on the rule"
+               },
+               "value":{
+                  "title":"Value",
+                  "type":"string",
+                  "description":"Value of the filed to use to apply this rule"
+               }
+            }
+         },
+         "FederationMetadata":{
+            "title":"FederationMetadata",
+            "required":[
+               "entity_id",
+               "sign_on_url"
+            ],
+            "type":"object",
+            "properties":{
+               "entity_id":{
+                  "title":"Entity Id",
+                  "type":"string"
+               },
+               "sign_on_url":{
+                  "title":"Sign On Url",
+                  "type":"string"
+               }
+            }
+         },
+         "Federation_metadata":{
+            "title":"Federation_metadata",
+            "required":[
+               "entity_id",
+               "sign_on_url"
+            ],
+            "type":"object",
+            "properties":{
+               "entity_id":{
+                  "title":"Entity Id",
+                  "type":"string"
+               },
+               "sign_on_url":{
+                  "title":"Sign On Url",
+                  "type":"string"
+               }
+            }
+         },
+         "HTTPValidationError":{
+            "title":"HTTPValidationError",
+            "type":"object",
+            "properties":{
+               "detail":{
+                  "title":"Detail",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/ValidationError"
+                  }
+               }
+            }
+         },
+         "HealthzResult":{
+            "title":"HealthzResult",
+            "required":[
+               "message"
+            ],
+            "type":"object",
+            "properties":{
+               "message":{
+                  "title":"Message",
+                  "type":"string"
+               }
+            }
+         },
+         "LocalLogin":{
+            "title":"LocalLogin",
+            "required":[
+               "platform_cids"
+            ],
+            "type":"object",
+            "properties":{
+               "platform_cids":{
+                  "title":"Platform Cids",
+                  "type":"array",
+                  "items":{
+
+                  }
+               }
+            }
+         },
+         "Message":{
+            "title":"Message",
+            "required":[
+               "message"
+            ],
+            "type":"object",
+            "properties":{
+               "message":{
+                  "title":"Message",
+                  "type":"string"
+               }
+            }
+         },
+         "OboardedAppsResponseWithSecret":{
+            "title":"OboardedAppsResponseWithSecret",
+            "required":[
+               "application_instance_id",
+               "application_id",
+               "login_url",
+               "logout_url",
+               "oauth_redirect_uri",
+               "client_id_user",
+               "client_id_api",
+               "oauth_well_known_endpoint",
+               "ccs_login_url",
+               "ccs_api_url"
+            ],
+            "type":"object",
+            "properties":{
+               "application_instance_id":{
+                  "title":"Application Instance ID",
+                  "type":"string",
+                  "description":"Unique ID of the Application instance"
+               },
+               "application_id":{
+                  "title":"Application ID",
+                  "type":"string",
+                  "description":"Unique ID of the Application"
+               },
+               "login_url":{
+                  "title":"Login URL",
+                  "type":"string",
+                  "description":"Login URL of the Application instance"
+               },
+               "logout_url":{
+                  "title":"Logout URL",
+                  "type":"string",
+                  "description":"Logout URL of the Application Instance"
+               },
+               "oauth_redirect_uri":{
+                  "title":"Redirection URL",
+                  "type":"string",
+                  "description":"Redirection URL for the Application Instance"
+               },
+               "extra_login_urls":{
+                  "title":"Extra Login URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Login URLs for the Application Instance "
+               },
+               "extra_redirect_urls":{
+                  "title":"Extra Redirection URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Redirection URLs for the Application Instance "
+               },
+               "extra_logout_urls":{
+                  "title":"Extra Logout URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Logout URLs for the Application Instance "
+               },
+               "authorization_code_grant_type":{
+                  "title":"Authorization Code Grant",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/AuthGrantTypes"
+                     }
+                  ],
+                  "description":"Authorization code Grant option",
+                  "default":"non_pkce"
+               },
+               "ccs_api_scopes":{
+                  "title":"APP to CCS API token's Scopes",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/ApiTokenScopes"
+                  },
+                  "description":"Scopes/Permissions to be included in the APP to CCS API tokens",
+                  "default":[
+                     "read"
+                  ]
+               },
+               "external_api_url":{
+                  "title":"External Api Url",
+                  "maxLength":65536,
+                  "minLength":1,
+                  "type":"string",
+                  "description":"External API URL for the Application Instance",
+                  "format":"uri"
+               },
+               "client_id_user":{
+                  "title":"Client ID for User Auth",
+                  "type":"string",
+                  "description":"PingFederate oAuth Client ID for User Authentication"
+               },
+               "client_id_api":{
+                  "title":"Client ID for API Auth",
+                  "type":"string",
+                  "description":"PingFederate oAuth Client ID for APP to CCS API Authentication"
+               },
+               "oauth_well_known_endpoint":{
+                  "title":"PingFed oAuth Well known endpoint",
+                  "type":"string",
+                  "description":"PingFed oAuth Wellknown endpoint for oAuth configuration"
+               },
+               "ccs_login_url":{
+                  "title":"CCS Login URL",
+                  "type":"string",
+                  "description":"CCS Login URL end-point"
+               },
+               "ccs_api_url":{
+                  "title":"CCS API URL",
+                  "type":"string",
+                  "description":"CCS platform's API endpoint."
+               },
+               "client_secret_user":{
+                  "title":"Client secret for User Auth",
+                  "type":"string",
+                  "description":"Client Secret for user Auth if the selected oAuth mode was NON_PKCE"
+               },
+               "client_secret_api":{
+                  "title":"Client secret for API Auth",
+                  "type":"string",
+                  "description":"Client Secret for API Auth"
+               }
+            }
+         },
+         "OnboardedApps":{
+            "title":"OnboardedApps",
+            "required":[
+               "application_instance_id",
+               "application_id",
+               "login_url",
+               "logout_url",
+               "oauth_redirect_uri"
+            ],
+            "type":"object",
+            "properties":{
+               "application_instance_id":{
+                  "title":"Application Instance ID",
+                  "type":"string",
+                  "description":"Unique ID of the Application instance"
+               },
+               "application_id":{
+                  "title":"Application ID",
+                  "type":"string",
+                  "description":"Unique ID of the Application"
+               },
+               "login_url":{
+                  "title":"Login URL",
+                  "type":"string",
+                  "description":"Login URL of the Application instance"
+               },
+               "logout_url":{
+                  "title":"Logout URL",
+                  "type":"string",
+                  "description":"Logout URL of the Application Instance"
+               },
+               "oauth_redirect_uri":{
+                  "title":"Redirection URL",
+                  "type":"string",
+                  "description":"Redirection URL for the Application Instance"
+               },
+               "extra_login_urls":{
+                  "title":"Extra Login URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Login URLs for the Application Instance "
+               },
+               "extra_redirect_urls":{
+                  "title":"Extra Redirection URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Redirection URLs for the Application Instance "
+               },
+               "extra_logout_urls":{
+                  "title":"Extra Logout URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Logout URLs for the Application Instance "
+               },
+               "authorization_code_grant_type":{
+                  "title":"Authorization Code Grant",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/AuthGrantTypes"
+                     }
+                  ],
+                  "description":"Authorization code Grant option",
+                  "default":"non_pkce"
+               },
+               "ccs_api_scopes":{
+                  "title":"APP to CCS API token's Scopes",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/ApiTokenScopes"
+                  },
+                  "description":"Scopes/Permissions to be included in the APP to CCS API tokens",
+                  "default":[
+                     "read"
+                  ]
+               },
+               "external_api_url":{
+                  "title":"External Api Url",
+                  "maxLength":65536,
+                  "minLength":1,
+                  "type":"string",
+                  "description":"External API URL for the Application Instance",
+                  "format":"uri"
+               }
+            }
+         },
+         "OnboardedAppsResponse":{
+            "title":"OnboardedAppsResponse",
+            "required":[
+               "application_instance_id",
+               "application_id",
+               "login_url",
+               "logout_url",
+               "oauth_redirect_uri",
+               "client_id_user",
+               "client_id_api",
+               "oauth_well_known_endpoint",
+               "ccs_login_url",
+               "ccs_api_url"
+            ],
+            "type":"object",
+            "properties":{
+               "application_instance_id":{
+                  "title":"Application Instance ID",
+                  "type":"string",
+                  "description":"Unique ID of the Application instance"
+               },
+               "application_id":{
+                  "title":"Application ID",
+                  "type":"string",
+                  "description":"Unique ID of the Application"
+               },
+               "login_url":{
+                  "title":"Login URL",
+                  "type":"string",
+                  "description":"Login URL of the Application instance"
+               },
+               "logout_url":{
+                  "title":"Logout URL",
+                  "type":"string",
+                  "description":"Logout URL of the Application Instance"
+               },
+               "oauth_redirect_uri":{
+                  "title":"Redirection URL",
+                  "type":"string",
+                  "description":"Redirection URL for the Application Instance"
+               },
+               "extra_login_urls":{
+                  "title":"Extra Login URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Login URLs for the Application Instance "
+               },
+               "extra_redirect_urls":{
+                  "title":"Extra Redirection URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Redirection URLs for the Application Instance "
+               },
+               "extra_logout_urls":{
+                  "title":"Extra Logout URLs",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  },
+                  "description":"Extra Logout URLs for the Application Instance "
+               },
+               "authorization_code_grant_type":{
+                  "title":"Authorization Code Grant",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/AuthGrantTypes"
+                     }
+                  ],
+                  "description":"Authorization code Grant option",
+                  "default":"non_pkce"
+               },
+               "ccs_api_scopes":{
+                  "title":"APP to CCS API token's Scopes",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/ApiTokenScopes"
+                  },
+                  "description":"Scopes/Permissions to be included in the APP to CCS API tokens",
+                  "default":[
+                     "read"
+                  ]
+               },
+               "external_api_url":{
+                  "title":"External Api Url",
+                  "maxLength":65536,
+                  "minLength":1,
+                  "type":"string",
+                  "description":"External API URL for the Application Instance",
+                  "format":"uri"
+               },
+               "client_id_user":{
+                  "title":"Client ID for User Auth",
+                  "type":"string",
+                  "description":"PingFederate oAuth Client ID for User Authentication"
+               },
+               "client_id_api":{
+                  "title":"Client ID for API Auth",
+                  "type":"string",
+                  "description":"PingFederate oAuth Client ID for APP to CCS API Authentication"
+               },
+               "oauth_well_known_endpoint":{
+                  "title":"PingFed oAuth Well known endpoint",
+                  "type":"string",
+                  "description":"PingFed oAuth Wellknown endpoint for oAuth configuration"
+               },
+               "ccs_login_url":{
+                  "title":"CCS Login URL",
+                  "type":"string",
+                  "description":"CCS Login URL end-point"
+               },
+               "ccs_api_url":{
+                  "title":"CCS API URL",
+                  "type":"string",
+                  "description":"CCS platform's API endpoint."
+               }
+            }
+         },
+         "ReadyzResult":{
+            "title":"ReadyzResult",
+            "required":[
+               "message"
+            ],
+            "type":"object",
+            "properties":{
+               "message":{
+                  "title":"Message",
+                  "type":"string"
+               }
+            }
+         },
+         "SamlAttributeMapping":{
+            "title":"SamlAttributeMapping",
+            "required":[
+               "email",
+               "hpe_ccs_attribute"
+            ],
+            "type":"object",
+            "properties":{
+               "email":{
+                  "title":"Email",
+                  "type":"string",
+                  "description":"Email field attribute"
+               },
+               "first_name":{
+                  "title":"First name",
+                  "type":"string",
+                  "description":"First name field attribute",
+                  "default":"fn_not_configured"
+               },
+               "last_name":{
+                  "title":"Last name",
+                  "type":"string",
+                  "description":"Last name field attribute",
+                  "default":"ln_not_configured"
+               },
+               "idle_session_timeout":{
+                  "title":"Idle session timeout(in mins)",
+                  "exclusiveMaximum":1440.0,
+                  "exclusiveMinimum":5.0,
+                  "type":"integer",
+                  "description":"Idle session timeout for the federated users",
+                  "default":15
+               },
+               "hpe_ccs_attribute":{
+                  "title":"HPE custom attribute",
+                  "type":"string",
+                  "description":"IDP attribute that maps to HPE's custom attribute"
+               }
+            }
+         },
+         "SamlIdpMetadata":{
+            "title":"SamlIdpMetadata",
+            "required":[
+               "entity_id",
+               "login_url",
+               "logout_url",
+               "signing_certificate"
+            ],
+            "type":"object",
+            "properties":{
+               "entity_id":{
+                  "title":"Entity ID",
+                  "type":"string",
+                  "description":"Entity ID of the SAML configuration"
+               },
+               "login_url":{
+                  "title":"Login URL",
+                  "type":"string",
+                  "description":"Login URL of the IDP"
+               },
+               "logout_url":{
+                  "title":"Logout URL",
+                  "type":"string",
+                  "description":"Logout url of the IDP"
+               },
+               "signing_certificate":{
+                  "title":"Certificate",
+                  "type":"string",
+                  "description":"X.509 signing certificate"
+               }
+            }
+         },
+         "SamlProfile":{
+            "title":"SamlProfile",
+            "type":"object",
+            "properties":{
+               "created_at":{
+                  "title":"SAML profile creation time",
+                  "type":"string",
+                  "description":"Time when this profile was first created",
+                  "format":"date-time"
+               },
+               "updated_at":{
+                  "title":"SAML profile update time",
+                  "type":"string",
+                  "description":"Time when this profile was last updated",
+                  "format":"date-time"
+               }
+            }
+         },
+         "SamlRecoveryUser":{
+            "title":"SamlRecoveryUser",
+            "required":[
+               "username"
+            ],
+            "type":"object",
+            "properties":{
+               "username":{
+                  "title":"Recovery username",
+                  "type":"string",
+                  "description":"username of Recovery/fallback user"
+               },
+               "password":{
+                  "title":"password",
+                  "type":"string",
+                  "description":"Password for the recovery user"
+               },
+               "recovery_email":{
+                  "title":"recovery email",
+                  "type":"string",
+                  "description":"An email to reset password of recovery user"
+               }
+            }
+         },
+         "TokenManagementAttributes":{
+            "title":"TokenManagementAttributes",
+            "required":[
+               "credential_name",
+               "application_instance_id"
+            ],
+            "type":"object",
+            "properties":{
+               "credential_name":{
+                  "title":"Credential Name",
+                  "type":"string",
+                  "description":"Name of the credentials being created"
+               },
+               "application_instance_id":{
+                  "title":"Application instance ID",
+                  "type":"string",
+                  "description":"Application instance ID for which the credential is created"
+               }
+            },
+            "description":"Input received from UI to create the token."
+         },
+         "TrackingInfo":{
+            "title":"TrackingInfo",
+            "required":[
+               "status",
+               "response"
+            ],
+            "type":"object",
+            "properties":{
+               "status":{
+                  "title":"Status",
+                  "type":"string"
+               },
+               "response":{
+                  "title":"Response",
+                  "type":"object"
+               }
+            }
+         },
+         "ValidationError":{
+            "title":"ValidationError",
+            "required":[
+               "loc",
+               "msg",
+               "type"
+            ],
+            "type":"object",
+            "properties":{
+               "loc":{
+                  "title":"Location",
+                  "type":"array",
+                  "items":{
+                     "anyOf":[
+                        {
+                           "type":"string"
+                        },
+                        {
+                           "type":"integer"
+                        }
+                     ]
+                  }
+               },
+               "msg":{
+                  "title":"Message",
+                  "type":"string"
+               },
+               "type":{
+                  "title":"Error Type",
+                  "type":"string"
+               }
+            }
+         },
+         "accounts":{
+            "title":"accounts",
+            "required":[
+               "accounts"
+            ],
+            "type":"object",
+            "properties":{
+               "accounts":{
+                  "title":"Accounts",
+                  "type":"array",
+                  "items":{
+                     "$ref":"#/components/schemas/CustomerSelection"
+                  }
+               }
+            }
+         },
+         "domain_config":{
+            "title":"domain_config",
+            "required":[
+               "message"
+            ],
+            "type":"object",
+            "properties":{
+               "message":{
+                  "title":"Message",
+                  "type":"string"
+               },
+               "error_code":{
+                  "title":"Error Code",
+                  "type":"string"
+               },
+               "multi_domain":{
+                  "title":"Multi Domain",
+                  "type":"boolean",
+                  "default":false
+               },
+               "domains_matched":{
+                  "title":"Domains Matched",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  }
+               },
+               "attribute_mapping":{
+                  "$ref":"#/components/schemas/SamlAttributeMapping"
+               }
+            }
+         },
+         "idToken":{
+            "title":"idToken",
+            "required":[
+               "id_token"
+            ],
+            "type":"object",
+            "properties":{
+               "id_token":{
+                  "title":"Id Token",
+                  "type":"string"
+               }
+            }
+         },
+         "metadataUrl":{
+            "title":"metadataUrl",
+            "required":[
+               "metadata_url"
+            ],
+            "type":"object",
+            "properties":{
+               "metadata_url":{
+                  "title":"Metadata Url",
+                  "type":"string"
+               }
+            }
+         },
+         "metadata_url":{
+            "title":"metadata_url",
+            "required":[
+               "url"
+            ],
+            "type":"object",
+            "properties":{
+               "url":{
+                  "title":"Url",
+                  "type":"string"
+               }
+            }
+         },
+         "samlProfile_multidomain":{
+            "title":"samlProfile_multidomain",
+            "required":[
+               "domain",
+               "saml_idp_config"
+            ],
+            "type":"object",
+            "properties":{
+               "domain":{
+                  "title":"Domain",
+                  "type":"string",
+                  "description":"Domain to be claimed"
+               },
+               "saml_idp_config":{
+                  "title":"IDP metadata",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/SamlIdpMetadata"
+                     }
+                  ],
+                  "description":"Details of the SAML IDP metadata"
+               },
+               "enforcement_policy_enabled":{
+                  "title":"Enforcement Policies",
+                  "type":"boolean",
+                  "description":"Custom enforcement policies to derive user roles and permissions",
+                  "default":false
+               },
+               "attribute_mapping":{
+                  "title":"Attribute mapping",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/SamlAttributeMapping"
+                     }
+                  ],
+                  "description":"Attribute mapping if Enforcement policies are not enabled"
+               },
+               "enforcement_policy_config":{
+                  "title":"Enforcement policies",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/EnforcementPolicyConfiguration"
+                     }
+                  ],
+                  "description":"Enforcement policy configuration"
+               },
+               "recovery_user":{
+                  "title":"Recovery user for SAML",
+                  "allOf":[
+                     {
+                        "$ref":"#/components/schemas/SamlRecoveryUser"
+                     }
+                  ],
+                  "description":"recovery/fallback Non Federated user, to be used if SAML configured incorrectly"
+               },
+               "created_at":{
+                  "title":"SAML profile creation time",
+                  "type":"string",
+                  "description":"Time when this profile was first created",
+                  "format":"date-time"
+               },
+               "updated_at":{
+                  "title":"SAML profile update time",
+                  "type":"string",
+                  "description":"Time when this profile was last updated",
+                  "format":"date-time"
+               },
+               "multi_domain":{
+                  "title":"Multi Domain",
+                  "type":"boolean",
+                  "default":false
+               },
+               "domains_matched":{
+                  "title":"Domains Matched",
+                  "type":"array",
+                  "items":{
+                     "type":"string"
+                  }
+               }
+            }
+         }
+      },
+      "securitySchemes":{
+         "TokenAuth":{
+            "type":"http",
+            "scheme":"bearer"
+         },
+         "JWTBearer":{
+            "type":"http",
+            "scheme":"bearer"
+         }
+      }
+   },
+   "x-tagGroups":[
+      {
+         "name":"Internal APIs",
+         "tags":[
+            "internal-app-onboarding",
+            "internal-saml",
+            "internal-radsec"
+         ]
+      },
+      {
+         "name":"External APIs",
+         "tags":[
+            "External-Api-Status"
+         ]
+      },
+      {
+         "name":"External APIs",
+         "tags":[
+            "External-Api-Status",
+            "external-token-management"
+         ]
+      },
+      {
+         "name":"UI APIs",
+         "tags":[
+            "UI-Api-Status",
+            "UI-Token-Management",
+            "UI-app-onboarding",
+            "saml",
+            "auth_method",
+            "radius",
+            "radsec",
+            "session",
+            "smartcard"
+         ]
+      }
+   ]
+}
