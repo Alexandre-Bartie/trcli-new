@@ -22,29 +22,31 @@ class TestOpenApiParser:
             "layout 3.1 - Compatible"],
     )
     def test_openapi_parser_layout_version(self, data_flow):
-        self.__parser_check(data_flow)
+        self.__parser_check(data_flow, type="version")
 
 
     @pytest.mark.parse_openapi
     @pytest.mark.parametrize(
         "data_flow",
         [
-            {"file_name": "authn_swagger.json", "compatible": True},
+            {"file_name": "authz_v1_external.json", "compatible": True},
+            {"file_name": "authz_v1_internal.json", "compatible": True},            
+            {"file_name": "authn.json", "compatible": True},
         ],
         ids=[
-            "AuthN",
+            "Authv1-External", "Authv1-Internal", "AuthN",
         ],
     )
     def test_openapi_parser_layout_system(self, data_flow):
-        self.__parser_check(data_flow)
+        self.__parser_check(data_flow, type="system")
 
-    def __parser_check(self, data: {"file_name": str, "compatible": bool}):
+    def __parser_check(self, data: {"file_name": str, "compatible": bool}, type: str):
         
         file_name = data["file_name"]
         compatible = data["compatible"]
         env = Environment()
         env.case_matcher = MatchersParser.AUTO
-        env.file = Path(__file__).parent / "test_data/openapi/file" / file_name
+        env.file = Path(__file__).parent / f"test_data/openapi/{type}/file" / file_name
         file_input = OpenApiParser(env)
         success = False
         try:
