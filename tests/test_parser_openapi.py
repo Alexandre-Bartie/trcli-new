@@ -29,14 +29,16 @@ class TestOpenApiParser:
     @pytest.mark.parametrize(
         "data_flow",
         [
-            # {"file_name": "authz_v1_external.json", "compatible": True},
-            # {"file_name": "authz_v1_internal.json", "compatible": True},
-            {"file_name": "authn-swagger.json", "compatible": True},
+            {"file_name": "authz_swagger.json", "compatible": True},
+            {"file_name": "authn_swagger.json", "compatible": True},
+            {"file_name": "cust_user_mgmt_swagger.json", "compatible": True},
+            {"file_name": "ui_doorway_swagger.json", "compatible": True},
         ],
         ids=[
-            # "Authv1-External",
-            # "Authv1-Internal",
-            # "AuthN",
+            "Authv1",
+            "AuthN",
+            "AccountManagement",
+            "UI-Doorway"
         ],
     )
     def test_openapi_parser_layout_system(self, data_flow):

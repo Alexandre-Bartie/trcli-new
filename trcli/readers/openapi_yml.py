@@ -198,16 +198,8 @@ class OpenApiParser(FileParser):
             self.__validate_spec_version(spec_dictionary)
             return spec_dictionary
         except Exception as e:
-            errorMsg = json.dumps(e.args[0], indent=4, separators=(". ", "="))
-            errorPath = e.args[2]
-            errorResp = e.args[5]
-            print("List Errors:")
-            print(f'Error Path#: {errorPath}')
-            print(f'Error Resp#: {errorResp}')
-            print(f'{errorMsg}')
-            # print("List Errors:")
-            # for arg in e.args:
-            #     print(f'Error #: {arg}')
+            self.__log_error(e.args)
+
             raise e  # "This openapi file have internal problems."
 
     def __validate_spec_version(self, spec_dictionary):
@@ -233,3 +225,19 @@ class OpenApiParser(FileParser):
             "OAS 3.0": openapi_v30_spec_validator,
             "OAS 3.1": openapi_v31_spec_validator,
         }
+    
+    def __log_error(self, error, level = 0, index = 1):
+        if isinstance(error, (list, tuple, set)):
+            count = 0
+            for item in error:
+                count += 1
+                self.__log_error(item, level + 1, count)
+        else:          
+            self.error.log(error)
+
+        if level == 0:
+            self.error.save()
+            self.env.log(f"Parse Error: The parse error file was created. -path: {self.error.path}")
+
+
+
