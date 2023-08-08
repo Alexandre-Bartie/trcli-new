@@ -22,26 +22,41 @@ class TestOpenApiParser:
             "layout 3.0 - Compatible",
             "layout 3.1 - Compatible"],
     )
-    def test_openapi_parser_layout_version(self, data_flow):
-        self.__parser_check(data_flow, type="version")
+    def test_openapi_parser_layout(self, data_flow):
+        self.__parser_check(data_flow, type="layout")
 
     @pytest.mark.parse_openapi
     @pytest.mark.parametrize(
         "data_flow",
         [
+            {"file_name": "authz_v1_swagger.json", "compatible": True},
+            {"file_name": "authz_v2_swagger.json", "compatible": True}
+        ],
+        ids=[
+            "Authv1",
+            "Authv2",
+        ],
+    )
+    def test_openapi_parser_version(self, data_flow):
+        self.__parser_check(data_flow, type="version")
+
+    @pytest.mark.parse_openapi
+    @pytest.mark.parametrize(
+        "data_flow",
+        [                  
             {"file_name": "authz_swagger.json", "compatible": True},
             {"file_name": "authn_swagger.json", "compatible": True},
             {"file_name": "cust_user_mgmt_swagger.json", "compatible": True},
             {"file_name": "ui_doorway_swagger.json", "compatible": True},
         ],
         ids=[
-            "Authv1",
-            "AuthN",
+            "Authv",
+            "Authn",
             "AccountManagement",
             "UI-Doorway"
         ],
     )
-    def test_openapi_parser_layout_system(self, data_flow):
+    def test_openapi_parser_system(self, data_flow):
         self.__parser_check(data_flow, type="system")
 
     def __parser_check(self, data: {"file_name": str, "compatible": bool}, type: str):
@@ -50,7 +65,7 @@ class TestOpenApiParser:
         compatible = data["compatible"]
         env = Environment()
         env.case_matcher = MatchersParser.AUTO
-        env.file = Path(__file__).parent / f"test_data/openapi/{type}/file" / file_name
+        env.file = Path(__file__).parent / f"test_data/openapi/{type}" / file_name
         file_input = OpenApiParser(env)
         success = False
         try:

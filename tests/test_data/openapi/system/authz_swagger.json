@@ -7501,8 +7501,7 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request",
-                        "message": "Roles not found"
+                        "description": "Bad Request"
                     },
                     "401": {
                         "description": "The operation cannot be authorized"
@@ -7514,8 +7513,7 @@
                         "description": "The method is not allowed on this path"
                     },
                     "500": {
-                        "description": "Internal Server Error",
-                        "message": "Internal Server Error"
+                        "description": "Internal Server Error"
                     },
                     "422": {
                         "description": "Validation Error",
@@ -12587,9 +12585,7 @@
                     "children": {
                         "title": "Children",
                         "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/HierarchicalApplicationResource"
-                        },
+                        "items": { },
                         "description": "This resource's children in the application resource hierarchy",
                         "default": []
                     }
@@ -16102,11 +16098,6 @@
             "name": "ccs-tools",
             "description": "Operations performed internally that are specific to Authorization service",
             "x-displayName": "CCS Tools"
-        },
-        {
-            "name": "internal-v2-resource",
-            "description": "Operations that the CCS service can use to manage v2 resources",
-            "x-displayName": "Resource Management"
         },
         {
             "name": "internal-v2-resource",

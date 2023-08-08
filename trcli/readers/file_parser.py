@@ -50,7 +50,7 @@ class ErrorParse():
         #     text = json.dumps(content, indent=4)
         #     return f"json: {text}"
         # except json.JSONDecodeError:
-        return pprint.pformat(data, indent=4, compact=False, width=250)
+        return pprint.pformat(data, indent=4, compact=False, width=200)
  
 
 
