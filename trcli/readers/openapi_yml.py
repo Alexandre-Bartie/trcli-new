@@ -133,7 +133,7 @@ Response code
 
 class OpenApiParser(FileParser):
 
-    def parse_file(self) -> list[TestRailSuite]:
+    def parse_file(self, save: False) -> list[TestRailSuite]:
         self.env.log(f"Parsing OpenAPI specification.")
         spec = self.resolve_openapi_spec()
         sections = {
@@ -184,9 +184,12 @@ class OpenApiParser(FileParser):
             testsections=[section for _name, section in sections.items() if section.testcases],
             source=self.filename
         )
-
-        self.env.log(f"Processed {cases_count} test cases based on possible responses.")
-
+        
+        if save:
+            self.__save_data(test_suite)
+        
+        self.env.log(f"Processed {cases_count} test cases based on possible responses.")       
+        
         return [test_suite]
 
     def resolve_openapi_spec(self) -> dict:
@@ -226,18 +229,35 @@ class OpenApiParser(FileParser):
             "OAS 3.1": openapi_v31_spec_validator,
         }
     
+    def __save_data(self, data, level = 0, index = 1):
+        if level == 0:
+            self.log.setup("data", "txt")
+
+        if isinstance(data, (list, tuple, set)):
+            count = 0
+            for item in data:
+                count += 1
+                self.__save_data(item, level + 1, count)
+        else:          
+            self.log.add(data)
+
+        if level == 0:
+            self.log.save("Parser Data")
+    
     def __log_error(self, error, level = 0, index = 1):
+        if level == 0:
+            self.log.setup("error")
+
         if isinstance(error, (list, tuple, set)):
             count = 0
             for item in error:
                 count += 1
                 self.__log_error(item, level + 1, count)
         else:          
-            self.error.log(error)
+            self.log.add(error)
 
         if level == 0:
-            self.error.save()
-            self.env.log(f"Parse Error: The parse error file was created. -path: {self.error.path}")
+            self.log.save("Parser Error")                
 
 
 

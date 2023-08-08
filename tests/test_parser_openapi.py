@@ -10,6 +10,20 @@ from trcli.readers.openapi_yml import OpenApiParser
 
 
 class TestOpenApiParser:
+
+    @pytest.mark.parse_openapi
+    @pytest.mark.parametrize(
+        "data_flow",
+        [
+            {"file_name": "authz_v2_swagger.json", "compatible": True}
+        ],
+        ids=[
+            "Authv2",
+        ],
+    )
+    def test_openapi_parser_section(self, data_flow):
+        self.__parser_check(data_flow, type="section")
+
     @pytest.mark.parametrize(
         "data_flow",
         [
@@ -69,7 +83,7 @@ class TestOpenApiParser:
         file_input = OpenApiParser(env)
         success = False
         try:
-            parse_content = file_input.parse_file()[0]
+            parse_content = file_input.parse_file(save = True)[0]
             success = True
 
             read_input = self.__clear_unparsable_openapi_elements(parse_content)
@@ -86,18 +100,8 @@ class TestOpenApiParser:
         #     expected_result = json.load(file_output)
         #     assert DeepDiff(parsing_result, expected_result) == {}, \
         #         f"Result of parsing OpenApi is different than expected \n{DeepDiff(parsing_result, expected_result)}"
-        assert success == compatible, "Bad Result"
-
-    def __save_file(self, file_path, content):
-        try:
-            with open(file_path, 'w') as file:
-                file.write(content)
-            print(f"File '{file_path}' saved successfully.")
-            return True
-        except Exception as e:
-            print(f"An error occurred while saving the file: {e}")
-            return False
-
+        assert success == compatible, "Bad Result"   
+    
     def __clear_unparsable_openapi_elements(self, suite: TestRailSuite) -> TestRailSuite:
         for section in suite.testsections:
             for testcase in section.testcases:

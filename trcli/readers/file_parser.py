@@ -9,38 +9,41 @@ from typing import Union
 from trcli.cli import Environment
 from trcli.data_classes.dataclass_testrail import TestRailSuite
 
-class ErrorParse():
+class LogParser():
 
-    def __init__(self, path: str, extension = 'log'):
+    def __init__(self, environment: Environment):
+        self.env = environment    
         self.lines = []
-        self.path = name = Path(path.parent, path.stem + "." + extension)
-        self.__setup()
+        self.path = self.env.file
 
-    def __setup(self):
+    def setup(self, folder: str, extension = 'log') -> str:
+        self.path = Path(self.path.parent, folder, self.path.stem + "." + extension)
         if os.path.exists(self.path):
             try:
                 os.remove(self.path)
             except Exception as e:
                 print(f"An error occurred while deleting the file: {e}")
     
-    def log(self, error):
+    def add(self, error):
         if error is not None:
             self.lines.append(error)
 
-    def save(self):
+    def save(self, title: str):
         directory = os.path.dirname(self.path)
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-        file = open(self.path, 'w')
-        for line in self.lines:
-            try:
-                data = self.__format_line(line)
-                file.write(data + '\n')
-            except Exception as e:
-                print(f"An error occurred while writing the file: {e}")
+        try:
+            file = open(self.path, 'w')
+            for line in self.lines:
+                    data = self.__format_line(line)
+                    file.write(data + '\n')
 
-    
+            self.env.log(f"{title}: The parser file was created. -path: {self.path}")
+
+        except Exception as e:
+            print(f"An error occurred while writing the file: {e}")
+
     def __format_line(self, data):
         # try:
         #     if isinstance(data, deque):
@@ -54,17 +57,16 @@ class ErrorParse():
  
 
 
-class FileParser:
+class FileParser():
     """
     Each new parser should inherit from this class, to make file reading modular.
     """
-
     def __init__(self, environment: Environment):
         self.filepath = self.check_file(environment.file)
         self.filename = self.filepath.name
         self.env = environment
-        self.error = ErrorParse(self.__error_path())
- 
+        self.log = LogParser(environment)   
+
     @staticmethod
     def check_file(filepath: Union[str, Path]) -> Path:
         filepath = Path(filepath)
@@ -76,8 +78,6 @@ class FileParser:
     def parse_file(self) -> list[TestRailSuite]:
         raise NotImplementedError
 
-    def __error_path(self) -> str:
-        return self.filepath.parent / 'error' / self.filepath.name
 
 
 
