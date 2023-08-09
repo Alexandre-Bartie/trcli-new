@@ -8,7 +8,7 @@ from trcli.api.results_uploader import ResultsUploader
 from trcli.cli import pass_environment, Environment, CONTEXT_SETTINGS
 from trcli.constants import FAULT_MAPPING
 from trcli.data_classes.validation_exception import ValidationException
-from trcli.readers.openapi_yml import OpenApiParser
+from trcli.readers.openapi import OpenApiParser
 
 
 def print_config(env: Environment):

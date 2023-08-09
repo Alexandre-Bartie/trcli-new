@@ -24,10 +24,6 @@ class LogParser():
             except Exception as e:
                 print(f"An error occurred while deleting the file: {e}")
     
-    def add(self, error):
-        if error is not None:
-            self.lines.append(error)
-
     def save(self, title: str):
         directory = os.path.dirname(self.path)
         if not os.path.exists(directory):
@@ -36,15 +32,29 @@ class LogParser():
         try:
             file = open(self.path, 'w')
             for line in self.lines:
-                    data = self.__format_line(line)
-                    file.write(data + '\n')
+                file.write(line + '\n')
 
             self.env.log(f"{title}: The parser file was created. -path: {self.path}")
 
         except Exception as e:
-            print(f"An error occurred while writing the file: {e}")
+            print(f"An error occurred while writing the file: {e}")           
 
-    def __format_line(self, data):
+    def add(self, log, level = 0, index = 1):
+
+        if isinstance(log, (list, tuple, set)):
+            index = 0
+            for item in log:
+                index += 1
+                self.add(item, level + 1, index)
+        else:          
+            self.__add(log)
+
+    def __add(self, log, depth = 1):
+        if log is not None:
+            data = self.__format_line(log, depth)
+            self.lines.append(data)
+
+    def __format_line(self, data, level):
         # try:
         #     if isinstance(data, deque):
         #         content = list(data)
@@ -53,7 +63,7 @@ class LogParser():
         #     text = json.dumps(content, indent=4)
         #     return f"json: {text}"
         # except json.JSONDecodeError:
-        return pprint.pformat(data, indent=4, compact=False, width=200)
+        return pprint.pformat(data, indent=4, compact=False, width=200, depth=level)
  
 
 

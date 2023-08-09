@@ -6,7 +6,7 @@ import pytest
 from trcli.cli import Environment
 from trcli.data_classes.data_parsers import MatchersParser
 from trcli.data_classes.dataclass_testrail import TestRailSuite
-from trcli.readers.openapi_yml import OpenApiParser
+from trcli.readers.openapi import OpenApiParser
 
 
 class TestOpenApiParser:
@@ -15,9 +15,11 @@ class TestOpenApiParser:
     @pytest.mark.parametrize(
         "data_flow",
         [
+            {"file_name": "authz_v1_swagger.json", "compatible": True},
             {"file_name": "authz_v2_swagger.json", "compatible": True}
         ],
         ids=[
+            "Authv1",
             "Authv2",
         ],
     )
