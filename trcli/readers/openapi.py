@@ -136,59 +136,31 @@ class OpenApiParser(FileParser):
     def parse_file(self, save: False) -> list[TestRailSuite]:
         self.env.log(f"Parsing OpenAPI specification.")
         spec = self.resolve_openapi_spec()
-        sections = {
-            "untagged": TestRailSection("untagged")
-        }
-        cases_count = 0
-        for path, path_data in spec["paths"].items():
-            for verb, verb_details in path_data.items():
-                tag = None
-                if verb.lower() not in ["get", "put", "patch", "post", "delete", "options", "trace", "connect"]:
-                    continue
-                if "responses" not in verb_details.keys():
-                    continue
-                if "tags" in verb_details.keys() and len(verb_details["tags"]):
-                    tag = verb_details["tags"][0]
-                    if tag not in sections:
-                        sections[tag] = TestRailSection(tag)
-                for response, response_data in verb_details["responses"].items():
-                    request_details = verb_details.copy()
-                    request_details.pop("responses")
-                    openapi_test = OpenApiTestCase(
-                        path=path,
-                        verb=verb,
-                        response_code=response,
-                        response_description=response_data["description"] if "description" in response_data else None,
-                        operation_id=verb_details["operationId"] if "operationId" in verb_details else None,
-                        request_details=request_details,
-                        response_details=response_data
-                    )
-                    section: TestRailSection = sections[tag]
-                    section.testcases.append(
-                        TestRailCase(
-                            openapi_test.name,
-                            custom_automation_id=f"{openapi_test.unique_id}",
-                            result=TestRailResult(),
-                            case_fields={
-                                "template_id": 1,
-                                "custom_preconds": openapi_test.preconditions,
-                                "custom_steps": openapi_test.steps,
-                                "custom_expected": openapi_test.expected
-                            }
-                        )
-                    )
-                    cases_count += 1
 
+        self.log.setup("warning", "txt")
+
+        handle = OpenAPIHandleCases(self)
+
+        handle.getSections(spec)
+
+        sections, case_count = handle.getTestCases(spec)
+ 
         test_suite = TestRailSuite(
             spec["info"]["title"],
             testsections=[section for _name, section in sections.items() if section.testcases],
             source=self.filename
         )
+
+        self.log.save("Warning Data")
         
         if save:
             self.__save_suite(test_suite)
         
-        self.env.log(f"Processed {cases_count} test cases based on possible responses.")       
+        ##
+        ## Show summary of data extraction from openAPI file
+        ##
+
+        self.env.log(f"Processed {case_count} test cases based on possible responses.")       
         
         return [test_suite]
 
@@ -252,5 +224,178 @@ class OpenApiParser(FileParser):
         self.log.save("Parser Error")   
 
 
+class OpenAPIHandleCases():
+       
+    def __init__(self, parser: OpenApiParser):
 
+        self.parser = parser
+        self.log = parser.log
+        self.env = parser.env
+
+        self.sections = { "untagged": TestRailSection("untagged") }
+
+    def getSections(self, spec: dict):
+
+        ##
+        ## Identify the tag sections in the openAPI file
+        ##        
+        if "tags" in spec:  
+            
+            for item in spec["tags"]:
+                tag = item.get("name", "null")
+                name = item.get("x-displayName", tag) 
+                summary = item.get("description", "")                
+                if tag not in self.sections:
+                    self.sections[tag] = OpenAPITagSection(self.parser, name, summary)
+
+        ##
+        ## Identify group sections in the openAPI file
+        ##        
+        if "x-tagGroups" in spec:        
+            
+            for group in spec["x-tagGroups"]:
+                group_name = item.get("name", "null")
+                if group_name not in self.sections:
+                    self.sections[group_name] = OpenAPIGroupSection(self.parser, group_name)   
+
+                for tag in group["tags"]:
+                    if tag not in self.sections:
+                        self.log.add(f'Tag {tag} assigned not found!: tag-group {group_name} ')
+             
+        self.env.log(f'==============================================================')
+           
+    ##
+    ## Identify the test cases in the openAPI file
+    ##
+
+    def getTestCases(self, spec: dict):
+
+        try:
+            
+            case_count = 0
+            for path, path_data in spec["paths"].items():
+
+                for verb, verb_details in path_data.items():
+
+                    key = f'{verb}:{path}'
+
+                    if verb.lower() not in ["get", "put", "patch", "post", "delete", "options", "trace", "connect"]:
+                        continue
+                    if "responses" not in verb_details.keys():
+                        continue
+                    
+                    group, name, description, operationId = self.__getDetails(verb_details, key)
+
+                    if group not in self.sections:
+                        self.sections[group] = OpenAPIShortSection(self.parser, name, description)
+                    
+                    for response, response_data in verb_details["responses"].items():
+                        request_details = verb_details.copy()
+                        request_details.pop("responses")
+                        openapi_test = OpenApiTestCase(
+                            path=path,
+                            verb=verb,
+                            operation_id=operationId,
+                            request_details=request_details,
+                            response_code=response,
+                            response_description=response_data.get("description", None),
+                            response_details=response_data
+                        )
+                        section: TestRailSection = self.sections[group]
+                        section.testcases.append(
+                            TestRailCase(
+                                openapi_test.name,
+                                custom_automation_id=f"{openapi_test.unique_id}",
+                                result=TestRailResult(),
+                                case_fields={
+                                    "template_id": 1,
+                                    "custom_preconds": openapi_test.preconditions,
+                                    "custom_steps": openapi_test.steps,
+                                    "custom_expected": openapi_test.expected
+                                }
+                            )
+                        )
+
+                        self.env.log(f' ... {openapi_test.name}')
+                        case_count += 1
+            
+            return self.sections, case_count
+
+        except Exception as e:
+            self.env.log(f'Process Failure: -error: {e}')
+
+    ##
+    ## Get tag information
+    ##    
+    
+    def __getDetails(self, verb_details, key: str):
+
+        tag = self.__getTag(verb_details, key)
+       
+        ## Check missing information in openAPI file
+
+        operationId = verb_details.get("operationId")
+        summary = verb_details.get("summary", None)
+        description = verb_details.get("description", None)
+
+        if tag not in self.sections:
+            self.log.add(f'Tag [{tag}] not found!: {key}')
+            self.sections[tag] = OpenAPITagSection(self.parser, tag)          
+
+        if summary is None:
+            self.log.add(f'Summary not found!: {key}')
+
+        if operationId is None:
+            self.log.add(f'Operation Id not found!: {key}')
+
+        if operationId is not None:      
+            group = operationId
+        else:
+            group =  key
+
+        if summary is not None:
+            name = summary
+        else:
+            name =  group
+       
+        return group, name, description, operationId
+       
+    def __getTag(self, verb_details, key: str) -> str:
+
+        tag = "untagged"
+
+        if "tags" in verb_details.keys() and len(verb_details["tags"]):
+
+            ## Identify the current API's assigned tag
+            for item in verb_details["tags"]:
+                if item in self.sections:
+                    tag = item
+                    break
+            
+            if tag is None:
+                self.log.add(f'<Tags> list does not match!: {key}')
+
+        else:
+            self.log.add(f'<Tags> not found!: {key}')
+
+        return tag
+
+
+class OpenAPIGroupSection(TestRailSection):
+
+    def __init__(self, parser: OpenApiParser, name: str):
+        super().__init__(name)
+        parser.env.log(f'Group-Section#: {name}')
+
+class OpenAPITagSection(TestRailSection):
+
+    def __init__(self, parser: OpenApiParser, name: str, description = None):
+        super().__init__(name, description=description)
+        parser.env.log(f'Tag-Section#: {name}')
+
+class OpenAPIShortSection(TestRailSection):
+
+    def __init__(self, parser: OpenApiParser, name: str, description: str):
+        super().__init__(name, description=description)
+        parser.env.log(f'Short-Section#: {name}')
 

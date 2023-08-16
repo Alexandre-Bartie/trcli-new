@@ -13,11 +13,11 @@ class LogParser():
 
     def __init__(self, environment: Environment):
         self.env = environment    
-        self.lines = []
-        self.path = self.env.file
+        self.internal = self.env.file
 
     def setup(self, folder: str, extension = 'log') -> str:
-        self.path = Path(self.path.parent, folder, self.path.stem + "." + extension)
+        self.lines = []
+        self.path = Path(self.internal.parent, folder, self.internal.stem + "." + extension)
         if os.path.exists(self.path):
             try:
                 os.remove(self.path)
@@ -25,19 +25,20 @@ class LogParser():
                 print(f"An error occurred while deleting the file: {e}")
     
     def save(self, title: str):
-        directory = os.path.dirname(self.path)
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        if self.lines.__len__() != 0:
+            directory = os.path.dirname(self.path)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
 
-        try:
-            file = open(self.path, 'w')
-            for line in self.lines:
-                file.write(line + '\n')
+            try:
+                file = open(self.path, 'w')
+                for line in self.lines:
+                    file.write(line + '\n')
 
-            self.env.log(f"{title}: The parser file was created. -path: {self.path}")
+                self.env.log(f"{title}: The parser file was created. -path: {self.path}")
 
-        except Exception as e:
-            print(f"An error occurred while writing the file: {e}")           
+            except Exception as e:
+                print(f"An error occurred while writing the file: {e}")           
 
     def add(self, log, level = 0, index = 1):
 
@@ -65,8 +66,6 @@ class LogParser():
         # except json.JSONDecodeError:
         return pprint.pformat(data, indent=4, compact=False, width=200, depth=level)
  
-
-
 class FileParser():
     """
     Each new parser should inherit from this class, to make file reading modular.
