@@ -1,0 +1,2495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="pytest" errors="10" failures="1" skipped="4" tests="121" time="772.594"
+        timestamp="2023-08-22T21:47:38.606501" hostname="ccs-dev">
+        <testcase classname="test_authz_fts.TestAuthzOnboard" name="test_app_onboard[ccs.tac-admin]"
+            time="13.107">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_onboard_bad_data[ccs.tac-admin]" time="0.561">
+            <properties>
+                <property name="test_id" value="C1283644" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_onboard_duplicate[ccs.tac-admin]" time="1.993">
+            <properties>
+                <property name="test_id" value="C1283645" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_onboard_missing_instance[ccs.tac-admin]" time="0.003">
+            <skipped type="pytest.skip"
+                message="Should be unskipped once DISABLE_APP_CATALOG_VALIDATION is enabled">/home/dev/repo/ws/github.com/glcp/authz/tests/feature_test/testcases/test_authz_fts.py:235:
+                Should be unskipped once DISABLE_APP_CATALOG_VALIDATION is enabled</skipped>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_add[ccs.tac-admin]" time="3.926">
+            <properties>
+                <property name="test_id" value="C1283647" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_get_application_resources[ccs.tac-admin]" time="0.665">
+            <properties>
+                <property name="test_id" value="C1283648" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_onboard_full[ccs.tac-admin]" time="7.219">
+            <properties>
+                <property name="test_id" value="C1283646" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_update[ccs.tac-admin]" time="4.204">
+            <properties>
+                <property name="test_id" value="C1283649" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_delete_all_role[ccs.tac-admin]" time="10.526">
+            <properties>
+                <property name="test_id" value="C1283650" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_add_all_role[ccs.tac-admin]" time="4.419">
+            <properties>
+                <property name="test_id" value="C1283651" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_delete_all_params[ccs.tac-admin]" time="9.788">
+            <properties>
+                <property name="test_id" value="C1283652" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_delete_all_permissions[ccs.tac-admin]" time="13.404">
+            <properties>
+                <property name="test_id" value="C1283653" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzOnboard"
+            name="test_app_upgrade_delete_re_add[ccs.tac-admin]" time="13.921">
+            <properties>
+                <property name="test_id" value="C1283654" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP" name="test_app_onboard[ccs.tac-admin]"
+            time="23.602">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP" name="test_msp_access_rule[ccs.tac-admin]"
+            time="74.041">
+            <properties>
+                <property name="test_id" value="C1218614" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_invite_user_msp_account[ccs.tac-admin]" time="2.261">
+            <properties>
+                <property name="test_id" value="C1218622" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_invite_user_in_tenant_account_by_msp_user[ccs.tac-admin]" time="16.706" />
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_invite_user_in_tenant_account_by_tenant_user[ccs.tac-admin]" time="27.708" />
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_invite_user_tenant_account[ccs.tac-admin]" time="3.270">
+            <properties>
+                <property name="test_id" value="C1218623" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_modify_role_msp_user_inside_tenant_account[ccs.tac-admin]" time="2.232">
+            <properties>
+                <property name="test_id" value="C1218630" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_delete_msp_user_tenant_account[ccs.tac-admin]" time="12.426">
+            <properties>
+                <property name="test_id" value="C1218633" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_modify_role_tenant_user_tenant_account[ccs.tac-admin]" time="9.090">
+            <properties>
+                <property name="test_id" value="C1218617" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_create_role_tenant_user_inside_tenant_account[ccs.tac-admin]" time="1.117">
+            <properties>
+                <property name="test_id" value="C1218631" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_delete_role_tenant_user_inside_tenant_account[ccs.tac-admin]" time="1.332">
+            <properties>
+                <property name="test_id" value="C1218632" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_delete_tenant_user_tenant_account[ccs.tac-admin]" time="1.317">
+            <properties>
+                <property name="test_id" value="C1218624" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_role_create_msp_account[ccs.tac-admin]" time="4.805">
+            <properties>
+                <property name="test_id" value="C1218618" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_role_update_msp_account[ccs.tac-admin]" time="4.083">
+            <properties>
+                <property name="test_id" value="C1218639" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_role_assign_msp_account[ccs.tac-admin]" time="3.665">
+            <properties>
+                <property name="test_id" value="C1218641" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_role_delete_msp_account[ccs.tac-admin]" time="3.226">
+            <properties>
+                <property name="test_id" value="C1218621" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_delete_msp_user_msp_account[ccs.tac-admin]" time="1.125">
+            <properties>
+                <property name="test_id" value="C1218625" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_app_msp_role_assignment[ccs.tac-admin]" time="13.435">
+            <properties>
+                <property name="test_id" value="C1365732" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_app_get_msp_role_assignment[ccs.tac-admin-Get user role assignments by all available params]"
+            time="2.310">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_app_get_msp_role_assignment[ccs.tac-admin-Fetch user role assignments by application_id]"
+            time="2.096">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_app_get_msp_role_assignment[ccs.tac-admin-Take user role assignments by subject_id]"
+            time="1.838">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_app_get_msp_role_assignment[ccs.tac-admin-Receive user role assignments by subject_id]"
+            time="1.837">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzMSP"
+            name="test_app_get_msp_role_assignment[ccs.tac-admin-Pull user role assignments by limit and offset]"
+            time="4.369">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_app_onboard[ccs.tac-admin]" time="7.460">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create[ccs.tac-admin]" time="1.805">
+            <properties>
+                <property name="test_id" value="C1283726" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_bad_cid[ccs.tac-admin]" time="2.468">
+            <properties>
+                <property name="test_id" value="C1283727" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles" name="test_role_add[ccs.tac-admin]"
+            time="1.473">
+            <properties>
+                <property name="test_id" value="C1283728" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_empty[ccs.tac-admin]" time="0.490">
+            <properties>
+                <property name="test_id" value="C1283729" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_update[ccs.tac-admin]" time="1.527">
+            <properties>
+                <property name="test_id" value="C1283730" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_app_onboard[ccs.account-admin]" time="13.703">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create[ccs.account-admin]" time="1.330">
+            <properties>
+                <property name="test_id" value="C1283655" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_bad_cid[ccs.account-admin]" time="2.213">
+            <properties>
+                <property name="test_id" value="C1283656" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_add[ccs.account-admin]" time="1.999">
+            <properties>
+                <property name="test_id" value="C1283657" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_empty[ccs.account-admin]" time="0.526">
+            <properties>
+                <property name="test_id" value="C1283658" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_update[ccs.account-admin]" time="1.515">
+            <properties>
+                <property name="test_id" value="C1283659" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_app_onboard[ccs.operator]" time="10.153">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create[ccs.operator]" time="0.597">
+            <properties>
+                <property name="test_id" value="C1283706" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_bad_cid[ccs.operator]" time="2.420">
+            <properties>
+                <property name="test_id" value="C1283707" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles" name="test_role_add[ccs.operator]"
+            time="0.770">
+            <properties>
+                <property name="test_id" value="C1283708" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_empty[ccs.operator]" time="0.496">
+            <properties>
+                <property name="test_id" value="C1283709" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_update[ccs.operator]" time="0.628">
+            <properties>
+                <property name="test_id" value="C1283710" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_app_onboard[ccs.observer]" time="9.770">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create[ccs.observer]" time="0.648">
+            <properties>
+                <property name="test_id" value="C1365419" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_bad_cid[ccs.observer]" time="1.133">
+            <properties>
+                <property name="test_id" value="C1365420" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles" name="test_role_add[ccs.observer]"
+            time="0.628">
+            <properties>
+                <property name="test_id" value="C1365421" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_create_empty[ccs.observer]" time="0.525">
+            <properties>
+                <property name="test_id" value="C1365422" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzTestRoles"
+            name="test_role_update[ccs.observer]" time="0.605">
+            <properties>
+                <property name="test_id" value="C1365423" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAdminTestRoles"
+            name="test_role_create_dupe[ccs.tac-admin]" time="3.573">
+            <properties>
+                <property name="test_id" value="C1283660" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAdminTestRoles"
+            name="test_role_delete[ccs.tac-admin]" time="6.553">
+            <properties>
+                <property name="test_id" value="C1283661" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAdminTestRoles" name="test_auditlog[ccs.tac-admin]"
+            time="28.478">
+            <properties>
+                <property name="test_id" value="C1283662" />
+            </properties>
+            <failure
+                message="AssertionError: Description(s) for create, update, delete, assign not found in the audit log&#10;assert not {'assign': 'Updating of User Role Assignments', 'create': 'Creating of Role Test Role Name 985-2', 'delete': 'Deleting of Role None', 'update': 'Updating of Role None to Test Role Name 985-2'}">self
+                = &lt;feature_test.testcases.test_authz_fts.TestAdminTestRoles object at
+                0x7f89aca67220&gt;, ui_session = &lt;library.authz.AuthzUI object at
+                0x7f89ac000fa0&gt;
+                call_endpoints_that_use_auditlog = None
+
+                @pytest.mark.TestCaseID("C1283662")
+                def test_auditlog(self, ui_session, call_endpoints_that_use_auditlog):
+                two_minutes_ago = time.time() - 2 * 60
+
+                code, response = ui_session.audit_log(
+                params=f"app_slug=CCS&amp;offset=0&amp;limit=100&amp;category=authorization&amp;start_time={int(two_minutes_ago)}"
+                )
+                log.info(f"response from audit log {code} {response}")
+                auditlog_list = response.get("audits")
+
+                search_log_str = {
+                "create": f"Creating of Role {consts.AUDITLOG_USER_NAME}",
+                "update": f"Updating of Role None to {consts.AUDITLOG_USER_NAME}",
+                "delete": "Deleting of Role None",
+                "assign": "Updating of User Role Assignments",
+                }
+                for res in auditlog_list:
+                log.info(res["description"])
+                for key in search_log_str.keys():
+                if re.search(search_log_str[key], res["description"], re.IGNORECASE):
+                del search_log_str[key]
+                break
+                if not search_log_str:
+                break
+
+                &gt; assert (
+                not search_log_str
+                ), f"Description(s) for {', '.join(search_log_str)} not found in the audit log"
+                E AssertionError: Description(s) for create, update, delete, assign not found in the
+                audit log
+                E assert not {'assign': 'Updating of User Role Assignments', 'create': 'Creating of
+                Role Test Role Name 985-2', 'delete': 'Deleting of Role None', 'update': 'Updating
+                of Role None to Test Role Name 985-2'}
+
+                test_authz_fts.py:2272: AssertionError</failure>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_app_onboard[ccs.tac-admin]" time="15.142">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_create_read_resource_restriction_policy[ccs.tac-admin]" time="2.160">
+            <properties>
+                <property name="test_id" value="C1218579" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_create_duplicate_resource_restriction_policy[ccs.tac-admin]" time="2.004">
+            <properties>
+                <property name="test_id" value="C1218597" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_create_resource_restriction_policy_invalid_payload[ccs.tac-admin]"
+            time="0.501">
+            <properties>
+                <property name="test_id" value="C1218598" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_create_resource_restriction_policy_without_scope_instance[ccs.tac-admin]"
+            time="0.649">
+            <properties>
+                <property name="test_id" value="C1218599" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_default_resource_restriction_policy[ccs.tac-admin]" time="4.208">
+            <properties>
+                <property name="test_id" value="C1218600" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_read_invalid_resource_restriction_policy_name[ccs.tac-admin]" time="1.593">
+            <properties>
+                <property name="test_id" value="C1218601" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_edit_resource_restriction_policy[ccs.tac-admin]" time="4.792">
+            <properties>
+                <property name="test_id" value="C1218580" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_read_multiple_resource_restriction_policy[ccs.tac-admin]" time="7.262">
+            <properties>
+                <property name="test_id" value="C1218581" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_resource_restriction_policy_role_assign_add_rrp[ccs.tac-admin]" time="2.891">
+            <properties>
+                <property name="test_id" value="C1218582" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_delete_resource_restriction_policy_associated_role_rrp[ccs.tac-admin]"
+            time="2.256">
+            <properties>
+                <property name="test_id" value="C1218583" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_resource_restriction_policy_role_assign_overwrite_rrp[ccs.tac-admin]"
+            time="4.366">
+            <properties>
+                <property name="test_id" value="C1218584" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_resource_restriction_policy_role_unassign_delete_rrp[ccs.tac-admin]"
+            time="0.003">
+            <properties>
+                <property name="test_id" value="C1218585" />
+            </properties>
+            <skipped type="pytest.skip" message="unconditional skip">/home/dev/repo/ws/github.com/glcp/authz/tests/feature_test/testcases/test_authz_fts.py:6584:
+                unconditional skip</skipped>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_edit_resource_restriction_policy_after_role_assign[ccs.tac-admin]"
+            time="4.124">
+            <properties>
+                <property name="test_id" value="C1218586" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_delete_multiple_resource_restriction_policy[ccs.tac-admin]" time="3.329">
+            <properties>
+                <property name="test_id" value="C1218587" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzSingleResourceRestrictionPolicy"
+            name="test_create_read_resource_restriction_policy_msp[ccs.tac-admin]" time="2.902">
+            <properties>
+                <property name="test_id" value="C1218602" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_app_onboard[ccs.tac-admin]" time="14.795">
+            <properties>
+                <property name="test_id" value="C1283643" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_create_role_default_permission[ccs.tac-admin]" time="27.727">
+            <properties>
+                <property name="test_id" value="C1219149" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_update_role_default_permission[ccs.tac-admin]" time="9.760">
+            <properties>
+                <property name="test_id" value="C1365733" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_create_role_mandatory_permission[ccs.tac-admin]" time="6.788">
+            <properties>
+                <property name="test_id" value="C1219150" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_create_role_less_mandatory_permission[ccs.tac-admin]" time="25.549">
+            <properties>
+                <property name="test_id" value="C1219151" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_update_mandatory_resource_permission[ccs.tac-admin]" time="5.353">
+            <properties>
+                <property name="test_id" value="C1219152" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_assign_role_less_default_permission[ccs.tac-admin]" time="6.138">
+            <properties>
+                <property name="test_id" value="C1365734" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_create_assign_role_less_than_less_default_permission[ccs.tac-admin]"
+            time="17.132">
+            <properties>
+                <property name="test_id" value="C1219158" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_assign_same_role_by_less_default_permission_user[ccs.tac-admin]"
+            time="14.549">
+            <properties>
+                <property name="test_id" value="C1219153" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_assign_higher_role_by_less_default_permission_user[ccs.tac-admin]"
+            time="13.210">
+            <properties>
+                <property name="test_id" value="C1365706" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_authz_invite_user_by_less_than_default_resource[ccs.tac-admin]" time="15.801">
+            <properties>
+                <property name="test_id" value="C1365735" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts.TestAuthzRolePermissionElevation"
+            name="test_authz_del_role_by_less_than_default_resources[ccs.tac-admin]" time="14.198">
+            <properties>
+                <property name="test_id" value="C1365708" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_fts" name="test_status[ccs.tac-admin]" time="0.461" />
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_roles_list_for_assignment[ccs.tac-admin-AccountType.MSP]" time="25.886">
+            <properties>
+                <property name="test_id" value="C1398064" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_hierarchical_resources[ccs.tac-admin-AccountType.MSP]" time="4.446">
+            <properties>
+                <property name="test_id" value="C1398065" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_all_roles[ccs.tac-admin-AccountType.MSP]" time="1.253">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_roles_list_for_assignment[ccs.tac-admin-AccountType.TENANT]" time="9.612">
+            <properties>
+                <property name="test_id" value="C1398064" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_hierarchical_resources[ccs.tac-admin-AccountType.TENANT]" time="3.994">
+            <properties>
+                <property name="test_id" value="C1398065" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_all_roles[ccs.tac-admin-AccountType.TENANT]" time="1.341">
+            <properties>
+                <property name="test_id" value="C1347206" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_create_role_higher_permissions_by_user_less_permissions[ccs.tac-admin]"
+            time="10.670">
+            <properties>
+                <property name="test_id" value="C1398066" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_update_role_update_higher_permissions_by_user_less_permissions[ccs.tac-admin]"
+            time="2.347">
+            <properties>
+                <property name="test_id" value="C1398067" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_update_role_add_higher_permissions_by_user_less_permissions[ccs.tac-admin]"
+            time="2.267">
+            <properties>
+                <property name="test_id" value="C1398068" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_update_role_delete_higher_permissions_by_user_less_permissions[ccs.tac-admin]"
+            time="3.968">
+            <properties>
+                <property name="test_id" value="C1398069" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_update_role_update_less_permissions_by_user_less_permissions[ccs.tac-admin]"
+            time="2.139">
+            <properties>
+                <property name="test_id" value="C1398080" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_update_role_add_less_permissions_by_user_less_permissions[ccs.tac-admin]"
+            time="2.299">
+            <properties>
+                <property name="test_id" value="C1398092" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_delete_role[ccs.tac-admin]" time="2.901">
+            <properties>
+                <property name="test_id" value="C1218621" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_role_higher_permissions_msp_only_access_rules[ccs.tac-admin]"
+            time="4.189">
+            <properties>
+                <property name="test_id" value="C1398095" />
+            </properties>
+        </testcase>
+        <testcase classname="test_authz_msp_privilege.TestAuthzMSPPermissionElevation"
+            name="test_get_role_higher_permissions_tenant_only_access_rules[ccs.tac-admin]"
+            time="24.980">
+            <properties>
+                <property name="test_id" value="C1398098" />
+            </properties>
+        </testcase>
+        <testcase classname="test_organizations_fts.TestAuthzOnboardOrganization"
+            name="test_app_onboard_mandate_payload[ccs.tac-admin]" time="0.001">
+            <properties>
+                <property name="test_id" value="C1219165" />
+            </properties>
+            <skipped type="pytest.skip" message="unconditional skip">/home/dev/repo/ws/github.com/glcp/authz/tests/feature_test/testcases/test_organizations_fts.py:23:
+                unconditional skip</skipped>
+        </testcase>
+        <testcase classname="test_organizations_fts.TestAuthzOnboardOrganization"
+            name="test_app_onboard_invalid_payload[ccs.tac-admin]" time="0.704">
+            <properties>
+                <property name="test_id" value="C1219166" />
+            </properties>
+        </testcase>
+        <testcase classname="test_organizations_fts.TestAuthzOnboardOrganization"
+            name="test_app_onboard_incomplete_payload[ccs.tac-admin]" time="0.515">
+            <properties>
+                <property name="test_id" value="C1219167" />
+            </properties>
+        </testcase>
+        <testcase classname="test_organizations_fts.TestAuthzOnboardOrganization"
+            name="test_app_onboard_duplicate[ccs.tac-admin]" time="0.006">
+            <properties>
+                <property name="test_id" value="C1219168" />
+            </properties>
+            <skipped type="pytest.skip" message="unconditional skip">/home/dev/repo/ws/github.com/glcp/authz/tests/feature_test/testcases/test_organizations_fts.py:113:
+                unconditional skip</skipped>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_without_query_params[ccs.tac-admin]" time="15.901">
+            <properties>
+                <property name="test_id" value="C1349114" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_full_pagination[ccs.tac-admin-Getting first page with offset=0, limit=5]"
+            time="0.002">
+            <properties>
+                <property name="test_id" value="C1349115" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_full_pagination[ccs.tac-admin-Getting second page with offset=5, limit=5]"
+            time="0.002">
+            <properties>
+                <property name="test_id" value="C1349115" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_full_pagination[ccs.tac-admin-Getting third page with offset=10, limit=5]"
+            time="0.002">
+            <properties>
+                <property name="test_id" value="C1349115" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_full_pagination[ccs.tac-admin-Getting assignments when offset bigger than user total number]"
+            time="0.002">
+            <properties>
+                <property name="test_id" value="C1349115" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_search_by_user_id[ccs.tac-admin-Getting users that matches with search string.]"
+            time="0.002">
+            <properties>
+                <property name="test_id" value="C1349116" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_search_by_user_id[ccs.tac-admin-Filter users by non existing substring.]"
+            time="0.002">
+            <properties>
+                <property name="test_id" value="C1349116" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_invalid_url_params[ccs.tac-admin-invalid_param0-403]" time="0.002">
+            <properties>
+                <property name="test_id" value="C1349117" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_invalid_url_params[ccs.tac-admin-invalid_param1-403]" time="0.002">
+            <properties>
+                <property name="test_id" value="C1349117" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+        <testcase classname="test_users_v2_web.TestWebV2GetUserRoleAssignments"
+            name="test_invalid_url_params[ccs.tac-admin-invalid_param2-404]" time="3.250">
+            <properties>
+                <property name="test_id" value="C1349117" />
+            </properties>
+            <error
+                message="failed on setup with &quot;hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable error '403' for API 'GET https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'&quot;">obj
+                = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                &gt; return func(obj, *args, **kwargs)
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:34:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:189:
+                in get
+                r.raise_for_status()
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                self = &lt;Response [403]&gt;
+
+                def raise_for_status(self):
+                """Raises :class:`HTTPError`, if one occurred."""
+
+                http_error_msg = ""
+                if isinstance(self.reason, bytes):
+                # We attempt to decode utf-8 first because some servers
+                # choose to localize their reason strings. If the string
+                # isn't utf-8, we fall back to iso-8859-1 for all other
+                # encodings. (See PR #3538)
+                try:
+                reason = self.reason.decode("utf-8")
+                except UnicodeDecodeError:
+                reason = self.reason.decode("iso-8859-1")
+                else:
+                reason = self.reason
+
+                if 400 &lt;= self.status_code &lt; 500:
+                http_error_msg = (
+                f"{self.status_code} Client Error: {reason} for url: {self.url}"
+                )
+
+                elif 500 &lt;= self.status_code &lt; 600:
+                http_error_msg = (
+                f"{self.status_code} Server Error: {reason} for url: {self.url}"
+                )
+
+                if http_error_msg:
+                &gt; raise HTTPError(http_error_msg, response=self)
+                E requests.exceptions.HTTPError: 403 Client Error: Forbidden for url:
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/requests/models.py:1021:
+                HTTPError
+
+                During handling of the above exception, another exception occurred:
+                msp_account_session = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;,
+                real_app = &lt;library.ccs_app.CCSApp object at 0x7f89abf90f40&gt;
+                ui_host = {'account': {'app_id': '92e14a96-82a1-431e-9d51-e6a575969627',
+                'app_inst_id': 'cc16ee91-11f3-46cf-ae7f-14ef5bd3d7d6', ...1@345', 'role':
+                'custom-role', 'user': 'hpemira+less_perm@gmail.com', 'user_less_priv':
+                'hpemira+priv@gmail.com'}, ...}
+
+                @pytest.fixture(scope="class")
+                def assign_users_to_tenant_account(msp_account_session, real_app, ui_host):
+                application_id = real_app.app_id
+                msp_platform_cid = ui_host["msp_platform_cid"]
+                msp_account_session.load_account(msp_platform_cid)
+
+                &gt; ui_helpers.provision_app_instance(
+                msp_account_session, application_id, real_app.region
+                )
+
+                conftest.py:686:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+                ui_helpers.py:155: in provision_app_instance
+                provision = get_provisioned_application(session, application_id, region)
+                ui_helpers.py:119: in get_provisioned_application
+                code, res = session.get_provisions({"application_id": application_id})
+                ../library/authz.py:90: in decorated_func
+                code, res = func(*args, **kwargs)
+                ../library/authz.py:458: in get_provisions
+                resp = self.get(url=url, params=payload, tuple_response=True,)
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                _ _ _ _ _ _
+
+                obj = &lt;library.authz.AuthzUI object at 0x7f89acdd48b0&gt;, args = ()
+                kwargs = {'params': {'application_id': '92e14a96-82a1-431e-9d51-e6a575969627'},
+                'tuple_response': True, 'url':
+                'https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions'}
+                retries = 3, retriable_errors = [500, 501, 502, 503]
+
+                @wraps(func)
+                def decorator(obj, *args, **kwargs):
+                retries = obj.max_retries
+                while(retries):
+                try:
+                if obj.debug == True:
+                obj._log_request(func, *args, **kwargs)
+                return func(obj, *args, **kwargs)
+                except HTTPError as e:
+                retriable_errors = getattr(obj, "retriable_errors",
+                DEFAULT_RETRIABLE_ERRORS)
+                if e.response.status_code in retriable_errors:
+                obj._log_error_response(e.response)
+                LOG.warning(f"Response code : {e.response.status_code}")
+                if (
+                hasattr(obj, "validate_retriable_response") and
+                not obj.validate_retriable_response(e.response)
+                ):
+                raise SessionException(
+                "Reponse validation failed for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                else:
+                retries -= 1
+                if retries:
+                LOG.error(f"Waiting for {obj.retry_timeout} "\
+                "seconds before retrying...")
+                time.sleep(obj.retry_timeout)
+                continue
+                LOG.error("Retries exhausted")
+                raise SessionException(
+                f"Retries exhausted for API "\
+                f"'{e.response.request.method} "\
+                f"{e.response.request.url}' : "\
+                f"'{e.response.status_code}'",
+                e.response
+                )
+                elif e.response.status_code == 401:
+                obj._log_request_headers(e.response.request)
+                obj._log_error_response(e.response)
+                if hasattr(obj, "refresh_token") and obj.refresh_token():
+                LOG.debug("Retrying the API after token refresh")
+                continue
+                raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                else:
+                obj._log_error_response(e.response)
+                LOG.warning(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'"
+                )
+                &gt; raise SessionException(
+                f"Non Retryable error '{e.response.status_code}' for "\
+                f"API '{e.response.request.method} "\
+                f"{e.response.request.url}'", e.response
+                )
+                E hpe_ccs_automation_lib.session.core.exceptions.SessionException: Non Retryable
+                error '403' for API 'GET
+                https://mira-default-user-api.ccs.arubathena.com/ui-doorway/ui/v1/applications/provisions?application_id=92e14a96-82a1-431e-9d51-e6a575969627'
+                /usr/local/lib/ccs-dev/poetry/venvs/hpe-authz-ft-9Ff49KU_-py3.8/lib/python3.8/site-packages/hpe_ccs_automation_lib/session/core/session.py:85:
+                SessionException</error>
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,1 @@
+{"uuid": "4f486da4-05f0-4524-8bb2-ab9f70e292f8", "children": ["06df01fa-821f-42ec-9fc7-aed91bd82aab"], "befores": [{"name": "invite_tenant_user", "status": "passed", "start": 1692741070691, "stop": 1692741074436}], "afters": [{"name": "invite_tenant_user::0", "status": "passed", "start": 1692741097942, "stop": 1692741098397}], "start": 1692741070691, "stop": 1692741098397}

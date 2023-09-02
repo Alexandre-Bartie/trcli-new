@@ -25,11 +25,19 @@
     },
     {
       "name": "Roles",
-      "description": "Roles are created in an Organization or Workspace, typically by an IAM administrator. They may be created by a Resource Provider (RP) if the RP has been granted the required privileges in the Organization or Workspace.\n<br><br> Requirements <ul> <li>Roles must include at least one inline permission.</li> <li>ManagedBy field is required for Managed roles.</li> </ul>\nKnown limitations <ul> <li>This endpoint does not provide pagination.</li> </ul>"
+      "description": "Roles are created in an Organization or Workspace, typically by an IAM administrator. They may be created by a Resource Provider (RP) if the RP has been granted the required privileges in the Organization or Workspace.\n<br><br> Requirements <ul> <li>Roles must include at least one inline permission.</li> <li>ManagedBy field is required for Managed and Linked roles.</li> </ul>\nKnown limitations <ul> <li>This endpoint does not provide pagination.</li> </ul>"
+    },
+    {
+      "name": "Workspace Roles",
+      "description": "Workspace Roles are created in an Organization or Workspace, typically by an IAM administrator. They may be created by a Resource Provider (RP) if the RP has been granted the required privileges in the Organization or Workspace.\n<br><br> Requirements <ul> <li>Workspace Roles must include at least one inline permission.</li> <li>ManagedBy field is required for Managed and Linked roles.</li> </ul>\nKnown limitations <ul> <li>This endpoint does not provide pagination.</li> </ul>"
     },
     {
       "name": "Predefined Roles",
-      "description": "Predefined roles are contributed by Resource Providers and are defined once, available everywhere.\nRequirements <ul> <li>Roles must include at least one inline permission.</li> </ul>\nKnown limitations <ul> <li>This endpoint does not provide pagination.</li> </ul>"
+      "description": "Predefined roles are contributed by Resource Providers and are defined once, available everywhere.\n<br><br> Requirements <ul> <li>Roles must include at least one inline permission.</li> </ul>\nKnown limitations <ul> <li>This endpoint does not provide pagination.</li> </ul>"
+    },
+    {
+      "name": "Role Assignments",
+      "description": "Role assignment are composed of three pieces. Subject, role and scope.\n<br><br> Known limitations <ul> <li>All query parameters, besides Limit and Offset, are repeatable 20 times at most.</li> </ul>"
     }
   ],
   "paths": {
@@ -550,16 +558,6 @@
           "Permissions"
         ],
         "operationId": "getPermissionList",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "name",
-            "description": "Allows searching for a permission by its name",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -986,6 +984,280 @@
         }
       }
     },
+    "/authorization/v2alpha1/workspace-roles": {
+      "post": {
+        "summary": "Create a role",
+        "tags": [
+          "Workspace Roles"
+        ],
+        "operationId": "createWorkspaceRole",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspaceRole"
+              },
+              "examples": {
+                "customRole": {
+                  "$ref": "#/components/examples/workspaceCustomRole"
+                },
+                "linkedRole": {
+                  "$ref": "#/components/examples/workspaceLinkedRole"
+                },
+                "managedRole": {
+                  "$ref": "#/components/examples/workspaceManagedRole"
+                },
+                "roleWithPermissions": {
+                  "$ref": "#/components/examples/workspaceCustomRoleOnlyPermission"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        }
+      },
+      "get": {
+        "summary": "Retrieve all roles",
+        "tags": [
+          "Workspace Roles"
+        ],
+        "operationId": "getWorkspaceRoles",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "managed-by",
+            "description": "Filter roles by managedBy attribute. Repeatable.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "grn",
+            "description": "Filter role list by Role GRN. Repeatable.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/readDeleteWorkspaceRole"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RolesList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/authorization/v2alpha1/workspace-roles/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get a role instance by ID",
+        "tags": [
+          "Workspace Roles"
+        ],
+        "operationId": "getWorkspaceRole",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/readDeleteWorkspaceRole"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a role instance by ID",
+        "tags": [
+          "Workspace Roles"
+        ],
+        "operationId": "putWorkspaceRole",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkspaceRole"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a role instance by ID",
+        "tags": [
+          "Workspace Roles"
+        ],
+        "operationId": "deleteWorkspaceRole",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/readDeleteWorkspaceRole"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        }
+      }
+    },
     "/authorization/v2alpha1/resource-providers/{providerId}/roles": {
       "post": {
         "summary": "Create a role for a given resource provider",
@@ -1319,11 +1591,10 @@
           },
           {
             "in": "query",
-            "name": "role-id",
+            "name": "role",
             "description": "Role identifier",
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           },
           {
@@ -1336,7 +1607,7 @@
           },
           {
             "in": "query",
-            "name": "subject-id",
+            "name": "subject",
             "description": "Security principal identifier",
             "schema": {
               "type": "string"
@@ -2040,7 +2311,7 @@
             "applicationResource": "/ccs/app-catalog/app-review",
             "permission": "ccs.app-catalog.view"
           },
-          "v2Permission": "ccs.app-catalog.app-review.view"
+          "v2Permission": "ccs.app-catalog-app-review.view"
         }
       },
       "ArubaPermissionMap": {
@@ -2050,7 +2321,7 @@
             "applicationResource": "/aruba-central/nms/configuration",
             "permission": "aruba-central.global.view"
           },
-          "v2Permission": "aruba-central.nms.configuration.view"
+          "v2Permission": "aruba-central.nms-configuration.view"
         }
       },
       "resourceTypeVM": {
@@ -2174,9 +2445,6 @@
           "permissions": [
             "storage.volume.create",
             "compute-services.virtual-machine.delete"
-          ],
-          "assignableScopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
           ]
         }
       },
@@ -2188,10 +2456,7 @@
           "description": "Grants user the System Admin role in Third Party System",
           "releaseStage": "ALPHA",
           "kind": "LINKED",
-          "linkedRoleRef": "0a9d90e4-e840-4879-abc",
-          "assignableScopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
-          ]
+          "linkedRoleRef": "0a9d90e4-e840-4879-abc"
         }
       },
       "managedRole": {
@@ -2206,10 +2471,65 @@
           "permissions": [
             "storage.volume.create",
             "hypervisor.vm.edit"
-          ],
-          "assignableScopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
           ]
+        }
+      },
+      "workspaceCustomRole": {
+        "summary": "Custom role",
+        "value": {
+          "name": "admin",
+          "displayName": "Admin",
+          "description": "System admin",
+          "releaseStage": "ALPHA",
+          "kind": "CUSTOM",
+          "permissions": [
+            "storage.volume.create",
+            "compute-services.virtual-machine.delete"
+          ],
+          "workspaceId": "bwfaf78asdfasdf9865"
+        }
+      },
+      "workspaceLinkedRole": {
+        "summary": "Linked role",
+        "value": {
+          "name": "storageservices.ThirdPartySystemAdmin",
+          "displayName": "Storage Third Party System Admin",
+          "description": "Grants user the System Admin role in Third Party System",
+          "releaseStage": "ALPHA",
+          "kind": "LINKED",
+          "linkedRoleRef": "0a9d90e4-e840-4879-abc",
+          "workspaceId": "bwfaf78asdfasdf9865"
+        }
+      },
+      "workspaceManagedRole": {
+        "summary": "Managed role",
+        "value": {
+          "name": "storageservices.LimitedAdmin",
+          "displayName": "Storage Limited Admin",
+          "description": "Storage Limited Admin",
+          "releaseStage": "ALPHA",
+          "kind": "MANAGED",
+          "managedBy": "storageservices",
+          "permissions": [
+            "storage.volume.create",
+            "hypervisor.vm.edit"
+          ],
+          "workspaceId": "bwfaf78asdfasdf9865"
+        }
+      },
+      "workspaceCustomRoleOnlyPermission": {
+        "summary": "Role with only Permissions",
+        "value": {
+          "name": "admin",
+          "displayName": "Admin",
+          "description": "System admin",
+          "releaseStage": "ALPHA",
+          "kind": "CUSTOM",
+          "permissions": [
+            "storage.volume.create",
+            "compute-services.virtual-machine.delete"
+          ],
+          "workspaceId": "bwfaf78asdfasdf9865"
         }
       },
       "customRoleOnlyPermission": {
@@ -2223,9 +2543,6 @@
           "permissions": [
             "storage.volume.create",
             "compute-services.virtual-machine.delete"
-          ],
-          "assignableScopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
           ]
         }
       },
@@ -2241,9 +2558,6 @@
           "permissions": [
             "storage.volume.create",
             "compute-services.virtual-machine.delete"
-          ],
-          "assignableScopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
           ]
         }
       },
@@ -2252,9 +2566,9 @@
         "value": {
           "id": "05f2523c-fe03-47fc-981b-9c4333a37b01",
           "type": "iam/authorization/role-assignment",
-          "subjectId": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
-          "roleId": "grn:glcp/iam/roles/storageservices.LimitedAdmin",
-          "scope": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b70/regions/us-east/resource-providers/compute-ops/firmware-bundles/123",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
+          "role": "grn:glp/iam/roles/storageservices.LimitedAdmin",
+          "scope": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b70/regions/us-east/resource-providers/compute-ops/firmware-bundles/123",
           "generation": 1,
           "createdAt": "2023-04-06T22:45:59.759943+00:00",
           "updatedAt": "2023-04-06T22:45:59.759943+00:00"
@@ -2265,9 +2579,9 @@
         "value": {
           "id": "05f2523c-fe03-47fc-981b-9c4333a37b01",
           "type": "iam/authorization/role-assignment",
-          "subjectId": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
-          "roleId": "grn:glcp/iam/roles/storageservices.LimitedAdmin",
-          "scope": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b70/regions/us-east/resource-providers/compute-ops/firmware-bundles/123",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
+          "role": "grn:glp/iam/roles/storageservices.LimitedAdmin",
+          "scope": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b70/regions/us-east/resource-providers/compute-ops/firmware-bundles/123",
           "conditions": [],
           "generation": 1,
           "createdAt": "2023-04-06T22:45:59.759943+00:00",
@@ -2279,9 +2593,9 @@
         "value": {
           "id": "05f2523c-fe03-47fc-981b-9c4333a37b01",
           "type": "iam/authorization/role-assignment",
-          "subjectId": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
-          "roleId": "grn:glcp/iam/roles/storageservices.LimitedAdmin",
-          "scope": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b70/regions/us-east/resource-providers/compute-ops/resource-groups/123",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
+          "role": "grn:glp/iam/roles/storageservices.LimitedAdmin",
+          "scope": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b70/regions/us-east/resource-providers/compute-ops/resource-groups/123",
           "generation": 1,
           "createdAt": "2023-04-06T22:45:59.759943+00:00",
           "updatedAt": "2023-04-06T22:45:59.759943+00:00"
@@ -2292,9 +2606,9 @@
         "value": {
           "id": "05f2523c-fe03-47fc-981b-9c4333a37b01",
           "type": "iam/authorization/role-assignment",
-          "subjectId": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
-          "roleId": "grn:glcp/iam/roles/storageservices.LimitedAdmin",
-          "scope": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/management-groups/05f0523c-fd03-47fc-981b-9c4333a37b60",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
+          "role": "grn:glp/iam/roles/storageservices.LimitedAdmin",
+          "scope": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/management-groups/05f0523c-fd03-47fc-981b-9c4333a37b60",
           "generation": 1,
           "createdAt": "2023-04-06T22:45:59.759943+00:00",
           "updatedAt": "2023-04-06T22:45:59.759943+00:00"
@@ -2305,9 +2619,9 @@
         "value": {
           "id": "05f2523c-fe03-47fc-981b-9c4333a37b01",
           "type": "iam/authorization/role-assignment",
-          "subjectId": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
-          "roleId": "grn:glcp/iam/roles/storageservices.LimitedAdmin",
-          "scope": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123",
+          "role": "grn:glp/iam/roles/storageservices.LimitedAdmin",
+          "scope": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60",
           "generation": 1,
           "createdAt": "2023-04-06T22:45:59.759943+00:00",
           "updatedAt": "2023-04-06T22:45:59.759943+00:00"
@@ -2321,7 +2635,7 @@
           "name": "group0",
           "description": "This group gives access only to the resource \"virtualmachine/1\"",
           "scopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b80/regions/us-east/resource-providers/vmaas/virtualmachine/1"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b80/regions/us-east/resource-providers/vmaas/virtualmachine/1"
           ],
           "generation": 1,
           "createdAt": "2023-05-08T22:40:59.759943+00:00",
@@ -2336,8 +2650,8 @@
           "name": "group1",
           "description": "This group gives access to scope group \"group0\" and resource \"virtualmachine/2\"",
           "scopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b80/regions/us-east/resource-providers/aruba-central/scope-group/group0",
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b80/regions/us-east/resource-providers/vmaas/virtualmachine/2"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b80/regions/us-east/resource-providers/aruba-central/scope-group/group0",
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b80/regions/us-east/resource-providers/vmaas/virtualmachine/2"
           ],
           "generation": 1,
           "createdAt": "2023-05-08T22:45:59.759943+00:00",
@@ -2346,52 +2660,52 @@
       },
       "enforce": {
         "value": {
-          "subject": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
           "permission": "storage.volume.create",
-          "scope": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
+          "scope": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
         }
       },
       "enforceBatchResources": {
         "summary": "Multiple Resources Request",
         "value": {
-          "subject": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
           "permission": "storage.volume.create",
           "scopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502",
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/401/volume/501"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502",
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/401/volume/501"
           ]
         }
       },
       "enforceBatchScopeGroup": {
         "summary": "Scope Group Request",
         "value": {
-          "subject": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
           "permission": "storage.volume.create",
           "scopes": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/scope-group/502"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/scope-group/502"
           ]
         }
       },
       "enforceBatchResourcesResponse": {
         "summary": "Multiple Resources Response",
         "value": {
-          "subject": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
           "permission": "storage.volume.create",
           "allowed": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
           ],
           "denied": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/401/volume/501"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/401/volume/501"
           ]
         }
       },
       "enforceBatchScopeGroupResponse": {
         "summary": "Scope Group Response",
         "value": {
-          "subject": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
+          "subject": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b",
           "permission": "storage.volume.create",
           "allowed": [
-            "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/scope-group/502"
+            "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/scope-group/502"
           ],
           "denied": []
         }
@@ -2776,9 +3090,77 @@
             "type": "string",
             "description": "Opaque string used to reference a role in another system not managed by AuthZ v2. Required for `LINKED` kind of roles. Not used by other role types."
           },
-          "assignableScopes": {
-            "$ref": "#/components/schemas/ScopeArray",
-            "description": "Indicate the set of scopes where the role can be used to create an assignment"
+          "generation": {
+            "$ref": "#/components/schemas/Generation"
+          },
+          "grn": {
+            "type": "string",
+            "readOnly": true,
+            "example": "grn:glp/iam/roles/storageservices.LimitedAdmin"
+          },
+          "createdAt": {
+            "$ref": "#/components/schemas/CreatedAt"
+          },
+          "updatedAt": {
+            "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "WorkspaceRole": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "name",
+          "releaseStage",
+          "kind",
+          "generation",
+          "grn",
+          "workspaceId",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/UUID"
+          },
+          "type": {
+            "type": "string",
+            "readOnly": true,
+            "example": "iam/authorization/role"
+          },
+          "name": {
+            "type": "string",
+            "description": "Unique name. If it's managed by a provider, the pattern is provider identifier followed by the actual name. (i.e. `<providerId>.<name>`)",
+            "example": "storageservices.LimitedAdmin"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Friendly name for user interface.",
+            "example": "Storage Limited Admin"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "Storage Limited Admin"
+          },
+          "releaseStage": {
+            "$ref": "#/components/schemas/ReleaseStage"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/Kind",
+            "description": "Specifies the type of role"
+          },
+          "managedBy": {
+            "$ref": "#/components/schemas/ManagedBy"
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/PermissionIDList",
+            "description": "At least one permissions is required, except for `LINKED` roles, which require an `linkedRoleRef` instead of permissions list."
+          },
+          "linkedRoleRef": {
+            "type": "string",
+            "description": "Opaque string used to reference a role in another system not managed by AuthZ v2. Required for `LINKED` kind of roles. Not used by other role types."
           },
           "generation": {
             "$ref": "#/components/schemas/Generation"
@@ -2786,13 +3168,31 @@
           "grn": {
             "type": "string",
             "readOnly": true,
-            "example": "grn:glcp/iam/roles/storageservices.LimitedAdmin"
+            "example": "grn:glp/iam/roles/storageservices.LimitedAdmin"
+          },
+          "workspaceId": {
+            "type": "string",
+            "readOnly": false,
+            "example": "kj1h23kj1h43kgjkhjd1"
           },
           "createdAt": {
             "$ref": "#/components/schemas/CreatedAt"
           },
           "updatedAt": {
             "$ref": "#/components/schemas/UpdatedAt"
+          }
+        }
+      },
+      "readDeleteWorkspaceRole": {
+        "type": "object",
+        "required": [
+          "workspaceId"
+        ],
+        "properties": {
+          "workspaceId": {
+            "type": "string",
+            "readOnly": false,
+            "example": "kj1h23kj1h43kgjkhjd1"
           }
         }
       },
@@ -2824,9 +3224,9 @@
         "required": [
           "id",
           "type",
-          "subjectId",
+          "subject",
           "scope",
-          "roleId",
+          "role",
           "generation",
           "createdAt",
           "updatedAt"
@@ -2840,20 +3240,20 @@
             "example": "iam/authorization/role-assignment",
             "readOnly": true
           },
-          "subjectId": {
+          "subject": {
             "type": "string",
-            "description": "Security principal identifier",
-            "example": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123"
+            "description": "Security principal identifier (GRN syntax)",
+            "example": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/123"
           },
-          "roleId": {
+          "role": {
             "type": "string",
-            "format": "uuid",
-            "description": "Role identifier"
+            "description": "Role identifier (GRN syntax)",
+            "example": "grn:glp/iam/roles/storageservices.LimitedAdmin"
           },
           "scope": {
             "type": "string",
-            "description": "Fully qualified scope string",
-            "example": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60"
+            "description": "Fully qualified scope string (GRN syntax)",
+            "example": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60"
           },
           "conditions": {
             "type": "array",
@@ -2935,8 +3335,8 @@
             },
             "maxItems": 100,
             "example": [
-              "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/aruba-central/scope-group/group0",
-              "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/vmaas/virtualmachine/456"
+              "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/aruba-central/scope-group/group0",
+              "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/vmaas/virtualmachine/456"
             ]
           },
           "generation": {
@@ -2983,7 +3383,7 @@
         "properties": {
           "subject": {
             "type": "string",
-            "example": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b"
+            "example": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b"
           },
           "permission": {
             "type": "string",
@@ -2991,7 +3391,7 @@
           },
           "scope": {
             "type": "string",
-            "example": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
+            "example": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
           }
         }
       },
@@ -3005,7 +3405,7 @@
         "properties": {
           "subject": {
             "type": "string",
-            "example": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b"
+            "example": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b"
           },
           "permission": {
             "type": "string",
@@ -3017,8 +3417,8 @@
               "type": "string"
             },
             "example": [
-              "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502",
-              "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/401/volume/501"
+              "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502",
+              "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/401/volume/501"
             ]
           }
         }
@@ -3028,7 +3428,7 @@
         "properties": {
           "subject": {
             "type": "string",
-            "example": "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b"
+            "example": "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/users/47fc981b"
           },
           "permission": {
             "type": "string",
@@ -3039,7 +3439,7 @@
             "items": {
               "type": "string",
               "example": [
-                "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
+                "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/502"
               ]
             }
           },
@@ -3048,7 +3448,7 @@
             "items": {
               "type": "string",
               "example": [
-                "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/501"
+                "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/05f0523c-fd03-47fc-981b-9c4333a37b60/regions/us-east/resource-providers/storageservice/storagepool/402/volume/501"
               ]
             }
           }
@@ -3061,7 +3461,7 @@
           "type": "string"
         },
         "example": [
-          "grn:glcp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
+          "grn:glp/organizations/05f0523c-fd03-47fc-981b-9c4333a37b70/workspaces/*"
         ]
       },
       "Kind": {

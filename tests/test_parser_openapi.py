@@ -17,12 +17,10 @@ class TestOpenApiParser:
         [
             {"file_name": "authz_v1_swagger.json", "compatible": True},
             {"file_name": "authz_v2_swagger.json", "compatible": True},
-            {"file_name": "authz_v3_swagger.json", "compatible": True}
         ],
         ids=[
             "Authv1",
             "Authv2",
-            "Authv3",
         ],
     )
     def test_openapi_parser_section(self, data_flow):
